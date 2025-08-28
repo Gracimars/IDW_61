@@ -1,11 +1,18 @@
-/* PAGINA ABOUT US */
-#about-us {
-  max-width: 1200px;
+/* clases comunes */
+
+.center-content {
   margin: 0 auto;
+  max-width: 1920px;
+}
+
+/* PAGINA ABOUT US */
+
+#about-us {
   min-height: 100vh;
 
   #about-us-main {
     flex-grow: 1;
+
     #hero-section {
       width: 100%;
       display: flex;
@@ -34,9 +41,9 @@
       }
       .about-description-content {
         display: flex;
-        gap: 2rem;
+        justify-content: space-around;
         #our-mission {
-          width: 50%;
+          width: 40%;
           p {
             margin-bottom: 1rem;
           }
@@ -44,7 +51,7 @@
 
         .timeline-card {
           background-color: #edfcfc;
-          width: 50%;
+          width: 40%;
           padding: 2rem 1.5rem;
           border-radius: 12px;
           display: flex;
