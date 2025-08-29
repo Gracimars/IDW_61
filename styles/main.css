@@ -113,5 +113,53 @@
         }
       }
     }
+
+    #about-us-team {
+      margin-bottom: 2rem;
+
+      .about-us-values-content {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+        text-align: center;
+        h2 {
+          text-align: center;
+          font-size: 36px;
+          font-weight: bold;
+          margin-bottom: 1rem;
+        }
+
+        .card-wrapper {
+          margin-top: 2rem;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 1rem;
+          column-gap: 2rem;
+          justify-content: center;
+          .card {
+            width: 15%;
+            min-width: 200px;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: #edfcfc;
+            max-width: 400px;
+
+            img {
+              width: 150px;
+              border-radius: 50%;
+              margin-bottom: 1rem;
+              border: 6px solid #a8836d;
+            }
+
+            h3 {
+              font-size: 20px;
+              font-weight: bold;
+              color: #062929;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
   }
 }
