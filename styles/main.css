@@ -10,6 +10,71 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   color: #062929;
+  background-color: #fcfcfb;
+}
+
+footer {
+  background-color: #062929;
+  color: #edfcfc;
+  .footer__main {
+    display: flex;
+    border-bottom: 1px solid #edfcfc;
+    justify-content: space-around;
+    padding: 2rem 1rem;
+
+    .footer__us__container {
+      width: 25%;
+
+      .us__title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .footer__contact__container {
+      width: 25%;
+
+      .contact__title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .contact__data {
+        padding: 0 0 0 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .contact__data__item {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+        }
+      }
+    }
+
+    .footer__business-hours__container {
+      width: 25%;
+      .business-hours__title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .business-hours__data {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  }
+
+  .footer__secondary {
+    text-align: center;
+    padding: 2rem;
+  }
 }
 
 /* PAGINA ABOUT US */
@@ -109,7 +174,7 @@ body {
             min-width: 250px;
             padding: 2rem;
             border-radius: 12px;
-            background-color: #ffffff;
+            background-color: #fcfcfb;
             max-width: 400px;
 
             .about__card__title {
