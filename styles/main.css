@@ -25,7 +25,7 @@ body {
       flex-direction: column;
       align-items: center;
       margin-bottom: 4rem;
-      h1 {
+      .about__hero__title {
         font-size: 48px;
         text-align: center;
         font-weight: 800;
@@ -40,17 +40,18 @@ body {
 
     #about-us-description {
       margin-bottom: 2rem;
-      h2 {
-        font-size: 36px;
-        font-weight: 800;
-        margin-bottom: 1rem;
-      }
+
       .about-description-content {
         display: flex;
         justify-content: space-around;
         #our-mission {
           width: 40%;
-          p {
+          .about__mission__title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 1rem;
+          }
+          .about__mission_description {
             margin-bottom: 1rem;
           }
         }
@@ -64,7 +65,7 @@ body {
           flex-direction: column;
           justify-content: space-around;
           max-height: 250px;
-          h3 {
+          .about__timeline__title {
             font-size: 24px;
             font-weight: 750;
             margin-bottom: 1.25rem;
@@ -128,7 +129,8 @@ body {
         flex-direction: column;
         padding: 2rem 0;
         text-align: center;
-        h2 {
+
+        .about__values__title {
           text-align: center;
           font-size: 36px;
           font-weight: 800;
@@ -150,14 +152,14 @@ body {
             background-color: #edfcfc;
             max-width: 400px;
 
-            img {
+            .about__team__image {
               width: 150px;
               border-radius: 50%;
               margin-bottom: 1rem;
               border: 6px solid #a8836d;
             }
 
-            h3 {
+            .about__team__name {
               font-size: 20px;
               font-weight: 600;
               color: #062929;
