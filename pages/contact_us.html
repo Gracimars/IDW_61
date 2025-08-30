@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="contact__header">
+        <div>
+          <h1 class="header_title">Comunicate con Nosotros</h1>
+          <p class="header_subtitle">
+            Póngase en contacto con nuestro equipo. Estamos aquí para ayudarle
+            con sus necesidades de atención médica<br />
+            y responder cualquier pregunta que pueda tener.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact__content">
+        <div class="contact__content__title">
+          <h2>Ponte en Contacto</h2>
+        </div>
+        <div class="contact__content__info">
+          <!-- section de phone,mail.adress, office hours-->
+          <div class="contact__body">
+            <div class="info__card__container">
+              <h3 class="card__title">Telefonos</h3>
+              <p class="card__text">Atencion general:(555)123-4567</p>
+              <p class="card__text">Emergencias: (555) 123-4568</p>
+            </div>
+            <div class="info__card__container">
+              <h3 class="card__title">Email</h3>
+              <p class="card__text">info@idwsa.com</p>
+              <p class="card__text">turnos@idwsa.com</p>
+            </div>
+            <div class="info__card__container">
+              <h3 class="card__title">Dirección</h3>
+              <p class="card__text">Siempreviva 123, Buenos Aires</p>
+            </div>
+            <div class="info__card__container">
+              <h3 class="card__title">Horarios</h3>
+              <p class="card__text">Lunes - Viernes: 08:00 Hs - 20:00 Hs</p>
+              <p class="card__text">Sábados: 09:00 Hs - 14:00 Hs</p>
+              <p class="card__text">Domingos: Cerrado</p>
+            </div>
+          </div>
+
+          <!--section de formulario-->
+          <div class="contact__content__form">
+            <h3 class="form__title">Envianos un Mensaje</h3>
+            <form class="">
+              <ul>
+                <li class="form__item">
+                  <label class="form__label">Nombre completo</label>
+                  <input class="form__input" type="text" name="nombre" />
+                </li>
+                <li class="form__item">
+                  <label class="form__label">Correo</label>
+                  <input class="form__input" type="email" name="correo" />
+                </li>
+                <li class="form__item">
+                  <label class="form__label">Número de teléfono</label>
+                  <input class="form__input" type="number" name="telefono" />
+                </li>
+                <li class="form__item">
+                  <label class="form__label">Mensaje</label>
+                  <input class="form__input" type="text" name="mensaje" />
+                </li>
+              </ul>
+            </form>
+            <button
+              class="form_button"
+              onclick="alert('El formulario ha sido enviado correctamente')"
+            >
+              Enviar formulario
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
