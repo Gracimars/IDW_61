@@ -1,0 +1,173 @@
+/* clases comunes */
+
+.center-content {
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #062929;
+}
+
+/* PAGINA ABOUT US */
+
+#about-us {
+  min-height: 100vh;
+
+  #about-us-main {
+    flex-grow: 1;
+
+    #hero-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 4rem;
+      .about__hero__title {
+        font-size: 48px;
+        text-align: center;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+      .subtitle {
+        display: inline-block;
+        text-align: center;
+        max-width: 650px;
+      }
+    }
+
+    #about-us-description {
+      margin-bottom: 2rem;
+
+      .about-description-content {
+        display: flex;
+        justify-content: space-around;
+        #our-mission {
+          width: 40%;
+          .about__mission__title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 1rem;
+          }
+          .about__mission_description {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .timeline-card {
+          background-color: #edfcfc;
+          width: 40%;
+          padding: 2rem 1.5rem;
+          border-radius: 12px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          max-height: 250px;
+          .about__timeline__title {
+            font-size: 24px;
+            font-weight: 750;
+            margin-bottom: 1.25rem;
+          }
+          .timeline-elements {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+          }
+        }
+      }
+    }
+
+    #about-us-values {
+      margin-bottom: 2rem;
+      background-color: #edfcfc;
+
+      .about-us-values-content {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+        text-align: center;
+
+        .about__values__title {
+          text-align: center;
+          font-size: 36px;
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+
+        .card-wrapper {
+          margin-top: 2rem;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 1rem;
+          column-gap: 2rem;
+          justify-content: center;
+          .card {
+            width: 15%;
+            min-width: 250px;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: #ffffff;
+            max-width: 400px;
+
+            .about__card__title {
+              font-size: 20px;
+              font-weight: 700;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    #about-us-team {
+      margin-bottom: 2rem;
+
+      .about-us-values-content {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+        text-align: center;
+
+        .about__values__title {
+          text-align: center;
+          font-size: 36px;
+          font-weight: 800;
+          margin-bottom: 1rem;
+        }
+
+        .card-wrapper {
+          margin-top: 2rem;
+          display: flex;
+          flex-wrap: wrap;
+          row-gap: 1rem;
+          column-gap: 2rem;
+          justify-content: center;
+          .card {
+            width: 15%;
+            min-width: 200px;
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: #edfcfc;
+            max-width: 400px;
+
+            .about__team__image {
+              width: 150px;
+              border-radius: 50%;
+              margin-bottom: 1rem;
+              border: 6px solid #a8836d;
+            }
+
+            .about__team__name {
+              font-size: 20px;
+              font-weight: 600;
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
