@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  color: #062929;
 }
 
 /* PAGINA ABOUT US */
@@ -88,7 +89,8 @@ body {
         flex-direction: column;
         padding: 2rem 0;
         text-align: center;
-        h2 {
+
+        .about__values__title {
           text-align: center;
           font-size: 36px;
           font-weight: 800;
@@ -110,10 +112,9 @@ body {
             background-color: #ffffff;
             max-width: 400px;
 
-            h3 {
+            .about__card__title {
               font-size: 20px;
               font-weight: 700;
-              color: #062929;
               margin-bottom: 1rem;
             }
           }
@@ -162,7 +163,6 @@ body {
             .about__team__name {
               font-size: 20px;
               font-weight: 600;
-              color: #062929;
               margin-bottom: 1rem;
             }
           }
