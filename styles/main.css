@@ -119,16 +119,25 @@ body {
       padding: 1rem 0;
       justify-content: space-around;
 
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #062929;
+      .logo-link {
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #062929;
+        }
       }
 
       nav {
         display: flex;
-        gap: 2rem;
-        margin-left: auto;
+        gap: 1rem;
 
         a {
           color: #374151;
@@ -146,7 +155,6 @@ body {
       .auth-buttons {
         display: flex;
         gap: 0.75rem;
-        flex-shrink: 0;
 
         .btn {
           padding: 0.5rem 1rem;
@@ -374,6 +382,7 @@ footer {
       align-items: center;
       margin-bottom: 4rem;
       .about__hero__title {
+        margin-top: 110px;
         font-size: 48px;
         text-align: center;
         font-weight: 800;
