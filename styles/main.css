@@ -112,7 +112,7 @@ body {
 }
 
 #header {
-  position: fixed;
+  position: sticky;
   width: 100%;
   background-color: white;
   box-shadow: 0 2px 8px rgba(6, 41, 41, 0.1);
@@ -303,7 +303,6 @@ footer {
       margin-right: auto;
     }
     .container {
-      margin-top: 110px;
 
       @media (max-width: 768px) {
         margin-top: 200px;
@@ -436,10 +435,10 @@ footer {
       flex-direction: column;
       align-items: center;
       margin-bottom: 4rem;
+      padding: 4rem 0;
 
       .about__hero__title {
-        margin-top: 110px;
-        font-size: 48px;
+        font-size: 36px;
         text-align: center;
         font-weight: 800;
         margin-bottom: 0.5rem;
@@ -595,13 +594,13 @@ footer {
     .header__content{
       background-color: #edfcfc;
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 0 ;
 
 
     }
     .header__title{
-      font-weight: 600;
-      font-size: 28px;
+      font-weight: 800;
+      font-size: 36px;
     }
 
   }
