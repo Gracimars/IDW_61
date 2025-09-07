@@ -109,6 +109,9 @@ body {
   font-style: normal;
   color: #062929;
   background-color: #fcfcfb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 #header {
@@ -279,6 +282,68 @@ footer {
 
 /* ========== HOMEPAGE ========== */
 
+#login {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  padding: 48px 0;
+
+  @media (max-width: 640px) {
+    padding: 48px 16px;
+  }
+
+  section {
+    background-color: #edfcfc;
+    padding: 32px;
+    width: 360px;
+    height: 280px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: auto;
+
+    @media (max-width: 640px) {
+      padding: 32px 8%;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 28px;
+      margin-bottom: 1.5rem;
+    }
+
+    .form__item {
+      display: flex;
+      flex-direction: column;
+
+      .form__label {
+        text-align: left;
+      }
+
+      .form__input {
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+    }
+
+    .form_button {
+      margin-top: 16px;
+      background-color: #062929;
+      color: #edfcfc;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      font-weight: bold;
+    }
+  }
+}
+
 #homepage {
   #hero {
     padding: 4rem 0;
@@ -303,7 +368,6 @@ footer {
       margin-right: auto;
     }
     .container {
-
       @media (max-width: 768px) {
         margin-top: 200px;
       }
@@ -588,79 +652,71 @@ footer {
 }
 
 /* CONTACT US*/
-#contact-us{
-  #contact-header{
-
-    .header__content{
+#contact-us {
+  #contact-header {
+    .header__content {
       background-color: #edfcfc;
       text-align: center;
-      padding: 4rem 0 ;
-
-
+      padding: 4rem 0;
     }
-    .header__title{
+    .header__title {
       font-weight: 800;
       font-size: 36px;
     }
-
   }
-  #contact-content{
+  #contact-content {
     margin: 4rem 7rem;
 
-    .title__text{
+    .title__text {
       font-weight: 600;
       font-size: 20px;
       padding-bottom: 2rem;
-    
     }
-    .contact__content__info{
+    .contact__content__info {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: start
-  
-
+      align-items: start;
     }
-    .info__card__container{
-    background-color: #e6fafa;
-    padding: 2rem;
-    border-radius: 12px;
-    max-width: 300px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-    width: 50%;
+    .info__card__container {
+      background-color: #e6fafa;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 300px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+      width: 50%;
     }
-    .card__title{
+    .card__title {
       font-size: 16px;
       font-weight: 600;
     }
-    .card__text{
+    .card__text {
       font-size: 14px;
     }
-    .contact__content__form{
-    background-color: #e6fafa;
-    padding: 2rem 2rem 0;
-    border-radius: 12px;
-    width: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    .contact__content__form {
+      background-color: #e6fafa;
+      padding: 2rem 2rem 0;
+      border-radius: 12px;
+      width: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
     .form__title {
- font-weight: 600;
-            font-size: 20px;
-            padding-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 20px;
+      padding-bottom: 0.5rem;
     }
-    .form__item{
+    .form__item {
       display: flex;
       flex-direction: column;
-
     }
-    .form__input{
+    .form__input {
       padding: 0.5rem;
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 4px;
       font-size: 14px;
     }
-    .form_button{
+    .form_button {
       background-color: #062929;
       color: #edfcfc;
       padding: 0.75rem;
@@ -673,10 +729,4 @@ footer {
       justify-items: center;
     }
   }
-
-
-
-
-
-
 }
