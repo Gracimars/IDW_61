@@ -7,6 +7,6 @@
   },
   "scripts": {
     "sass": "sass styles/scss/custom.scss styles/main.css --no-source-map --style=compressed",
-    "sass:watch": "sass --watch styles/scss/custom.scss:styles/overrides.css --no-source-map --style=expanded"
+    "sass:watch": "sass --watch styles/scss/custom.scss:styles/main.css --no-source-map --style=expanded"
   }
 }
