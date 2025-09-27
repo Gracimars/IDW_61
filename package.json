@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  },
+  "scripts": {
+    "sass": "sass styles/scss/custom.scss styles/main.css --no-source-map --style=compressed",
+    "sass:watch": "sass --watch styles/scss/custom.scss:styles/overrides.css --no-source-map --style=expanded"
+  }
+}

@@ -1,0 +1,15 @@
+$primary: #062929;
+$secondary: #a8836d;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: $primary;
+  background-color: #fcfcfb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
