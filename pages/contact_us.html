@@ -57,9 +57,9 @@
     </header>
 
     <main id="contact-us">
-      <section id="contact-header">
-        <div class="header__content">
-          <h1 class="header__title">Comunicate con Nosotros</h1>
+      <section class="my-5">
+        <div class="background_verdecito p-3 text-center pt-5 ">
+          <h1 class="header__title 5">Comunicate con Nosotros</h1>
           <p class="header__subtitle">
             Póngase en contacto con nuestro equipo. Estamos aquí para ayudarle con sus necesidades
             de atención médica<br />
@@ -68,70 +68,89 @@
         </div>
       </section>
 
-      <section id="contact-content">
-        <div class="contact__content__title center-content">
-          <h2 class="title__text">Ponte en Contacto</h2>
+      <section class="">
+        <div class="">
+          <h2 class="text-center pb-3 text-lg-start px-lg-5">Ponte en Contacto</h2>
         </div>
-        <div class="contact__content__info">
+        <div class="container ">
           <!-- section de phone,mail.adress, office hours-->
-          <div class="contact__body">
-            <div class="info__card__container">
-              <h3 class="card__title">Telefonos</h3>
-              <p class="card__text">Atencion general:(555)123-4567</p>
-              <p class="card__text">Emergencias: (555) 123-4568</p>
+          <div class="row justify-content-around">
+            <div class=" mb-4 col-12 px-5 col-lg-6">
+              <div
+                class="card rounded-3 py-3 px-5 my-2 border-0 background_verdecito"
+              >
+                <h3 class="h5">Telefonos</h3>
+                <p class="card-text mb-0">Atencion general:(555)123-4567</p>
+                <p class="card-text mb-0">Emergencias: (555) 123-4568</p>
+              </div>
+              <div
+                class="card rounded-3 py-3 px-5 border-0 background_verdecito my-2"
+              >
+                <h3 class="h5">Email</h3>
+                <p class="card-text mb-0">info@idwsa.com</p>
+                <p class="card-text">turnos@idwsa.com</p>
+              </div>
+              <div
+                class="card rounded-3 py-3 px-5 border-0 background_verdecito my-2"
+              >
+                <h3 class="h5">Dirección</h3>
+                <p class="card-text">Av. Siempreviva 123, Buenos Aires</p>
+              </div>
+              <div
+                class="card rounded-3 py-3 px-5 border-0 background_verdecito"
+              >
+                <h3 class="h5">Horarios</h3>
+                <p class="card-text mb-0">Lunes - Viernes: 08:00 Hs - 20:00 Hs</p>
+                <p class="card-text mb-0">Sábados: 09:00 Hs - 14:00 Hs</p>
+                <p class="card-text mb-0">Domingos: Cerrado</p>
+              </div>
             </div>
-            <div class="info__card__container">
-              <h3 class="card__title">Email</h3>
-              <p class="card__text">info@idwsa.com</p>
-              <p class="card__text">turnos@idwsa.com</p>
-            </div>
-            <div class="info__card__container">
-              <h3 class="card__title">Dirección</h3>
-              <p class="card__text">Av. Siempreviva 123, Buenos Aires</p>
-            </div>
-            <div class="info__card__container">
-              <h3 class="card__title">Horarios</h3>
-              <p class="card__text">Lunes - Viernes: 08:00 Hs - 20:00 Hs</p>
-              <p class="card__text">Sábados: 09:00 Hs - 14:00 Hs</p>
-              <p class="card__text">Domingos: Cerrado</p>
-            </div>
-          </div>
+            <!--section de formulario-->
+           
+              <div
+                class="col-12 col-lg-6 mb-3 background_verdecito">
+                <div class="d-flex flex-column align-items-center">
+                <h3 class="text-center py-3">Envianos un Mensaje</h3>
+                <form class="w-75 d-flex flex-column gap-2">
+                  <div class="text-center">
+                    <label class="form-label">Nombre completo</label>
+                    <input class="form-control" type="text" name="nombre" />
+                  </div>
+                  <div class="text-center">
+                    <label class="form-label">Correo</label>
+                    <input class="form-control" type="email" name="correo" />
+                  </div>
+                  <div class="text-center">
+                    <label class="form-label">Número de teléfono</label>
+                    <input class="form-control" type="text" name="telefono" />
+                  </div>
+                  <div class="text-center">
+                    <label class="form-label">Mensaje</label>
+                    <textarea 
+                      class="form-control max-height-200px"
+                      type="text"
+                      name="mensaje"
+                      rows="3"
 
-          <!--section de formulario-->
-          <div class="contact__content__form">
-            <h3 class="form__title">Envianos un Mensaje</h3>
-            <form class="">
-              <ul>
-                <li class="form__item">
-                  <label class="form__label">Nombre completo</label>
-                  <input class="form__input" type="text" name="nombre" />
-                </li>
-                <li class="form__item">
-                  <label class="form__label">Correo</label>
-                  <input class="form__input" type="email" name="correo" />
-                </li>
-                <li class="form__item">
-                  <label class="form__label">Número de teléfono</label>
-                  <input class="form__input" type="text" name="telefono" />
-                </li>
-                <li class="form__item">
-                  <label class="form__label">Mensaje</label>
-                  <input class="form__input" type="text" name="mensaje" />
-                </li>
-              </ul>
-            </form>
-            <button
-              class="form_button"
-              onclick="alert('El formulario ha sido enviado correctamente')"
-            >
-              Enviar formulario
-            </button>
+                    ></textarea>
+                  </div>
+                  <div>
+                  <button class="btn btn-primary d-block mx-auto my-3"
+                    type="submit"
+                    onclick="alert('El formulario ha sido enviado correctamente')"
+                  > Enviar formulario</button>
+                  </div>
+              
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
+    <!-- <footer>
       <div>
         <div class="footer__main">
           <div class="footer__us__container">

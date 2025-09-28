@@ -11876,6 +11876,10 @@ body {
   background-color: #e6fafa;
 }
 
+.max-height-200px {
+  max-height: 200px;
+}
+
 /***************************** Components *****************************/
 #header .logo-link {
   color: #062929;
