@@ -1,15 +1,38 @@
+@use "../../node_modules/bootstrap/scss/bootstrap-utilities.scss" as bs-utils;
+
 /***************************** Custom variables *****************************/
 $primary: #062929;
 $secondary: #a8836d;
 $background_verdecito: #e6fafa;
+$background_lightBrown: #fed7aa;
+$utilities: map-merge(
+  bs-utils.$utilities,
+  (
+    "rounded":
+      map-merge(
+        map-get(bs-utils.$utilities, "rounded"),
+        (
+          responsive: true,
+        )
+      ),
+    "width":
+      map-merge(
+        map-get(bs-utils.$utilities, "width"),
+        (
+          responsive: true,
+        )
+      ),
+  )
+);
 
-@use '../../node_modules/bootstrap/scss/bootstrap' with (
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
   $primary: $primary,
-  $secondary: $secondary
+  $secondary: $secondary,
+  $utilities: $utilities
 );
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   color: $primary;
@@ -26,6 +49,16 @@ body {
 }
 .max-height-200px {
   max-height: 200px;
+}
+
+.background_lightBrown {
+  background-color: $background_lightBrown !important;
+}
+
+.h-fit-content {
+  height: fit-content !important;
+  height: -moz-fit-content !important; /* en mi firefox necesito poner esto */
+  height: -webkit-fit-content !important; /* para Safari */
 }
 
 /***************************** Components *****************************/
@@ -64,4 +97,3 @@ body {
     }
   }
 }
-
