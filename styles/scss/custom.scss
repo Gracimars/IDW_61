@@ -1,6 +1,17 @@
 $primary: #062929;
 $secondary: #a8836d;
 
+$background_verdecito: #e6fafa;
+$background_lightBrown: #fed7aa;
+
+.background_verdecito {
+  background-color: $background_verdecito !important;
+}
+
+.background_lightBrown {
+  background-color: $background_lightBrown !important;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 body {

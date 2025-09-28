@@ -10,8 +10,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/overrides.css">
-    <!-- <link rel="stylesheet" href="../styles/main.css">  ESTO DEBERIAMOS COMENTARLO PARA PRIMERO BOOTSTRAPEAR TODO Y LUEGO AJUSTAR SEGUN NECESITAMOS -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <!-- <link rel="stylesheet" href="../styles/main_backup.css"> -->
+
 
     <title>Sobre Nosotros</title>
 </head>
@@ -39,21 +40,22 @@
     </header>
 
     <main id="about-us-main">
-        <section id="hero-section">
-            <div class="center-content">
-                <h1 class="about__hero__title">Sobre Nosotros</h1>
+        <section id="hero-section" class="w-100 d-flex flex-column text-center container mb-3">
+            <div class="px-4">
+                <h1 class="fw-bold h1">Sobre Nosotros</h1>
                 <p class="subtitle">Dedicados a proveer un servicio de salud de calidad para la comunidad por más de
-                    25 años con compasión, innovación y profesionalismo.
+                    25 años con compasión, innovación y
+                    profesionalismo.
                 </p>
             </div>
         </section>
 
-        <section id="about-us-description">
-            <div class="about-description-content center-content">
-                <div id="our-mission">
-                    <h2 class="about__mission__title">Nuestra Misión</h2>
+        <section id="about-us-description" class="container mb-3">
+            <div class="d-flex flex-md-row flex-column p-2">
+                <div class="col-md-6 col-12 pe-md-5 mb-4 mb-md-0">
+                    <h2 class="fw-bold text-center text-md-start">Nuestra Misión</h2>
 
-                    <p class="about__mission_description">En nuestra clínica creemos que la salud es el pilar
+                    <p class="text-break mb-3">En nuestra clínica creemos que la salud es el pilar
                         fundamental para una vida plena y con
                         bienestar. Por ello, nuestra
                         misión es brindar atención médica integral, ética y de calidad, enfocada en las necesidades
@@ -65,7 +67,9 @@
                         donde las personas se sientan seguras, escuchadas y valoradas, fortaleciendo la confianza en
                         cada consulta y
                         procedimiento.</p>
-                    <p>Además, trabajamos con un enfoque preventivo y educativo, fomentando hábitos saludables y
+                    <p class="text-break">Además, trabajamos con un enfoque preventivo y
+                        educativo,
+                        fomentando hábitos saludables y
                         promoviendo la importancia del
                         cuidado continuo de la salud. Nuestra misión no solo se centra en la recuperación de
                         enfermedades, sino también en la
@@ -76,28 +80,33 @@
                         respeto, solidaridad y excelencia profesional.</p>
                 </div>
 
-                <div class="timeline-card">
-                    <h3 class="about__timeline__title">Nuestra Historia</h3>
-                    <ul class="timeline-elements">
-                        <li>1973:</span> Fundación de IDW S.A. con el objetivo de brindar atención médica de calidad.
+                <div class="col-md-6 col-12 background_lightBrown p-3 rounded-4">
+                    <h3 class="fs-4 fw-semibold">Nuestra Historia</h3>
+                    <ul class="p-0">
+                        <li><span class="fw-bold">1973:</span> Fundación de IDW S.A. con el objetivo de brindar atención
+                            médica de
+                            calidad.
                         </li>
-                        <li><span>1985:</span> Apertura de nuestra primera clínica en la región.</li>
-                        <li><span>1995:</span> Implementación de tecnología de punta en nuestros servicios médicos.</li>
-                        <li><span>2005:</span> Expansión de nuestra red de atención a comunidades rurales.</li>
-                        <li><span>2015:</span> Reconocimiento como líder en atención médica centrada en el paciente.
+                        <li><span class="fw-bold">1985:</span> Apertura de nuestra primera clínica en la región.</li>
+                        <li><span class="fw-bold">1995:</span> Implementación de tecnología de punta en nuestros
+                            servicios médicos.</li>
+                        <li><span class="fw-bold">2005:</span> Expansión de nuestra red de atención a comunidades
+                            rurales.</li>
+                        <li><span class="fw-bold">2015:</span> Reconocimiento como líder en atención médica centrada en
+                            el paciente.
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="about-us-values">
-            <div class="about-us-values-content center-content">
-                <h2 class="about__values__title">Nuestros Valores</h2>
+        <section id="about-us-values" class="mb-3">
+            <div class="about-us-values-content center-content background_verdecito p-5">
+                <h2 class="h2 fw-bold text-center">Nuestros Valores</h2>
                 <p>Estos son los valores por los que nos guiamos en nuestro día a día</p>
 
-                <div class="card-wrapper">
-                    <div class="card">
+                <div class="d-flex flex-column gap-2 container">
+                    <div class="card p-3 border-0 rounded-3">
                         <h3 class="about__card__title">
                             Compromiso
                         </h3>
@@ -106,7 +115,7 @@
                             acción.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card p-3 border-0 rounded-3">
                         <h3 class="about__card__title">
                             Empatía
                         </h3>
@@ -114,7 +123,7 @@
                             y respetuoso.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card p-3 border-0 rounded-3">
                         <h3 class="about__card__title">
                             Excelencia
                         </h3>
@@ -123,7 +132,7 @@
                             avanzada.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card p-3 border-0 rounded-3">
                         <h3 class="about__card__title">
                             Responsabilidad
                         </h3>
@@ -131,7 +140,7 @@
                             confianza en cada interacción.</p>
                     </div>
 
-                    <div class="card">
+                    <div class="card p-3 border-0 rounded-3">
                         <h3 class="about__card__title">
                             Prevención y educación
                         </h3>
@@ -143,47 +152,58 @@
             </div>
         </section>
 
-        <section id="about-us-team">
-            <div class="about-us-values-content center-content">
-                <h2 class="about__values__title">Conocé nuestro equipo</h2>
+        <section id="about-us-team" class="container">
+            <div class="">
+                <h2 class="h2 fw-bold text-center">Conocé nuestro equipo</h2>
 
-                <div class="card-wrapper">
-                    <div class="card">
-                        <img src="https://placecats.com/bella/300/300"
-                            alt="Fotografía profesional de la doctora Gracimar Perez Morgado"
-                            class="about__team__image" />
-                        <h3 class="about__team__name">
-                            Perez Morgado, Gracimar
-                        </h3>
+                <div class="d-flex flex-column gap-2 p-3">
+                    <div class="d-flex flex-row gap-2 card border-0 background_verdecito align-items-center rounded-3">
+                        <img class="w-25 rounded-start-3" src="https://placecats.com/bella/300/300"
+                            alt="Fotografía profesional de la doctora Gracimar Perez Morgado" />
+                        <div class="p-3 d-flex flex-column justify-content-center">
+                            <h3 class="about__team__name">
+                                Perez Morgado, Gracimar
+                            </h3>
+                            <small>Directora General</small>
+                        </div>
 
                     </div>
 
-                    <div class="card">
-                        <img src="https://placecats.com/300/300"
+                    <div class="d-flex flex-row gap-2 card border-0 background_verdecito align-items-center rounded-3">
+                        <img class="w-25 rounded-start-3" src="https://placecats.com/300/300"
                             alt="Fotografía profesional del doctor Andrés Alejandro Fernández"
                             class="about__team__image" />
-                        <h3 class="about__team__name">
-                            Fernández, Andrés Alejandro
-                        </h3>
-
+                        <div class="p-3 d-flex flex-column justify-content-center">
+                            <h3 class="about__team__name">
+                                Fernández, Andrés Alejandro
+                            </h3>
+                            <small>Jefe de Cardiología</small>
+                        </div>
                     </div>
 
-                    <div class="card">
-                        <img src="https://placecats.com/millie/300/300"
+                    <div class="d-flex flex-row gap-2 card border-0 background_verdecito align-items-center rounded-3">
+                        <img class="w-25 rounded-start-3" src="https://placecats.com/millie/300/300"
                             alt="Fotografía profesional de la doctora María Teresa Pereyra Potel"
                             class="about__team__image" />
-                        <h3 class="about__team__name">
-                            Pereyra Potel, María Teresa
-                        </h3>
+                        <div class="p-3 d-flex flex-column justify-content-center">
+                            <h3 class="about__team__name">
+                                Pereyra Potel, María Teresa
+                            </h3>
+                            <small>Médica Psiquiatra</small>
+                        </div>
 
                     </div>
 
-                    <div class="card">
-                        <img src="https://placecats.com/neo_2/300/300"
+                    <div class="d-flex flex-row gap-2 card border-0 background_verdecito align-items-center rounded-3">
+                        <img class="w-25 rounded-start-3" src="https://placecats.com/neo_2/300/300"
                             alt="Fotografía profesional del doctor Cristopher Yang" class="about__team__image" />
-                        <h3 class="about__team__name">
-                            Yang, Cristopher
-                        </h3>
+                        <div class="p-3 d-flex flex-column justify-content-center">
+                            <h3 class="about__team__name">
+                                Yang, Cristopher
+                            </h3>
+                            <small>Pruebas experimentales psiquiatricas</small>
+                            <small>(posible paciente)</small>
+                        </div>
 
                     </div>
 

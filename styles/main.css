@@ -1,4 +1,12 @@
 @charset "UTF-8";
+.background_verdecito {
+  background-color: #e6fafa !important;
+}
+
+.background_lightBrown {
+  background-color: #fed7aa !important;
+}
+
 /*!
  * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
