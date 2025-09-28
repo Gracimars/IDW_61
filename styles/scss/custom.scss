@@ -1,18 +1,12 @@
+/***************************** Custom variables *****************************/
 $primary: #062929;
 $secondary: #a8836d;
-
 $background_verdecito: #e6fafa;
-$background_lightBrown: #fed7aa;
 
-.background_verdecito {
-  background-color: $background_verdecito !important;
-}
-
-.background_lightBrown {
-  background-color: $background_lightBrown !important;
-}
-
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+  $primary: $primary,
+  $secondary: $secondary
+);
 
 body {
   font-family: "Inter", sans-serif;
@@ -23,4 +17,47 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/***************************** Common clasess *****************************/
+
+.background_verdecito {
+  background-color: $background_verdecito;
+}
+
+/***************************** Components *****************************/
+
+#header {
+  .logo-link {
+    color: $primary;
+  }
+
+  .auth-buttons {
+    .btn-primary {
+      &:hover {
+        background-color: $background_verdecito !important;
+        border-color: $primary;
+        color: $primary;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  @include bootstrap.media-breakpoint-up(lg) {
+    .auth-buttons {
+      margin-left: 140px;
+    }
+  }
+
+  @include bootstrap.media-breakpoint-up(xl) {
+    .auth-buttons {
+      margin-left: 380px;
+    }
+  }
+
+  @include bootstrap.media-breakpoint-up(xxl) {
+    .auth-buttons {
+      margin-left: 420px;
+    }
+  }
 }
