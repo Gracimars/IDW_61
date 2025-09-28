@@ -17376,6 +17376,10 @@ body {
   background-color: #e6fafa;
 }
 
+.max-height-200px {
+  max-height: 200px;
+}
+
 .background_lightBrown {
   background-color: #fed7aa !important;
 }
