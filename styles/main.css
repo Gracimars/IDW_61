@@ -11869,3 +11869,11 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.background_verdecito {
+  background-color: #e6fafa;
+}
+
+.max-height-200px {
+  max-height: 200px;
+}
