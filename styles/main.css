@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/***************************** Custom variables *****************************/
 /*!
  * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
@@ -11868,4 +11869,35 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/***************************** Common clasess *****************************/
+.background_verdecito {
+  background-color: #e6fafa;
+}
+
+/***************************** Components *****************************/
+#header .logo-link {
+  color: #062929;
+}
+#header .auth-buttons .btn-primary:hover {
+  background-color: #e6fafa !important;
+  border-color: #062929;
+  color: #062929;
+  transition: all 0.3s ease;
+}
+@media (min-width: 992px) {
+  #header .auth-buttons {
+    margin-left: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  #header .auth-buttons {
+    margin-left: 380px;
+  }
+}
+@media (min-width: 1400px) {
+  #header .auth-buttons {
+    margin-left: 420px;
+  }
 }
