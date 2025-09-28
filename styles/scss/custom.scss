@@ -2,6 +2,7 @@
 $primary: #062929;
 $secondary: #a8836d;
 $background_verdecito: #e6fafa;
+$background_lightBrown: #fed7aa;
 
 @use "../../node_modules/bootstrap/scss/bootstrap" with (
   $primary: $primary,
@@ -23,6 +24,10 @@ body {
 
 .background_verdecito {
   background-color: $background_verdecito;
+}
+
+.background_lightBrown {
+  background-color: $background_lightBrown !important;
 }
 
 /***************************** Components *****************************/
