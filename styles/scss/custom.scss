@@ -1,23 +1,25 @@
-@use "../../node_modules/bootstrap/scss/bootstrap-utilities.scss" as bs-utils;
+@use '../../node_modules/bootstrap/scss/bootstrap-utilities.scss' as bs-utils;
 
 /***************************** Custom variables *****************************/
 $primary: #062929;
 $secondary: #a8836d;
 $background_verdecito: #e6fafa;
 $background_lightBrown: #fed7aa;
+$background_orange: #ea580c;
+
 $utilities: map-merge(
   bs-utils.$utilities,
   (
-    "rounded":
+    'rounded':
       map-merge(
-        map-get(bs-utils.$utilities, "rounded"),
+        map-get(bs-utils.$utilities, 'rounded'),
         (
           responsive: true,
         )
       ),
-    "width":
+    'width':
       map-merge(
-        map-get(bs-utils.$utilities, "width"),
+        map-get(bs-utils.$utilities, 'width'),
         (
           responsive: true,
         )
@@ -25,14 +27,14 @@ $utilities: map-merge(
   )
 );
 
-@use "../../node_modules/bootstrap/scss/bootstrap" with (
+@use '../../node_modules/bootstrap/scss/bootstrap' with (
   $primary: $primary,
   $secondary: $secondary,
   $utilities: $utilities
 );
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   color: $primary;
@@ -53,6 +55,10 @@ body {
 
 .background_lightBrown {
   background-color: $background_lightBrown !important;
+}
+
+.background_orange {
+  background-color: $background_orange !important;
 }
 
 .h-fit-content {
@@ -94,6 +100,62 @@ body {
   @include bootstrap.media-breakpoint-up(xxl) {
     .auth-buttons {
       margin-left: 420px;
+    }
+  }
+}
+
+/***************************** Homepage *****************************/
+#homepage {
+  margin-top: 82px;
+
+  .feature-icon {
+    height: 4rem;
+    padding: 0.5rem;
+    margin-bottom: 8px;
+    width: fit-content;
+    svg {
+      width: 2.8rem;
+      height: 2.8rem;
+      color: $background_orange;
+    }
+  }
+
+  .service-card {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
+  }
+
+  #services {
+    header {
+      p {
+        max-width: 600px;
+      }
+    }
+  }
+
+  #testimonials {
+    .testimonial-card {
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+      }
+    }
+
+    .stars {
+      font-size: 1.25rem !important;
+    }
+
+    .testimonial-author {
+      cite {
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
     }
   }
 }
