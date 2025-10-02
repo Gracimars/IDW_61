@@ -17459,3 +17459,12 @@ body {
   font-weight: 500;
   font-size: 0.9rem;
 }
+
+/***************************** Doctor Catalog *****************************/
+#doctor-catalog #catalog .doctor-card-col {
+  max-width: 350px;
+}
+#doctor-catalog #catalog .doctor-card-img {
+  height: 200px;
+  object-fit: cover;
+}
