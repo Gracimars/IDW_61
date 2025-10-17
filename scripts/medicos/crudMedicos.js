@@ -25,6 +25,17 @@ const handleSubmit = (event) => {
 
 
     // console.log((Math.max(...medicosDB.map(medico => medico.id)) + 1))
+    let foundMedico = null;
+    let foundMedicoIndex = -1;
+
+    if (action === edit && id) {
+        const index = medicosDB.findIndex(medico => medico.id === parseInt(id))
+
+        if (index !== -1) {
+            foundMedico = medicosDB[index];
+            foundMedicoIndex = index;
+        }
+    }
 
     const doctorEntry = {
         id: action === "edit" && id ? parseInt(id) : (Math.max(...medicosDB.map(medico => medico.id)) + 1),
@@ -32,16 +43,11 @@ const handleSubmit = (event) => {
         apellido: formData.apellido,
         matricula: parseInt(formData.matricula),
         descripcion: formData.descripcion,
-        obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key])
+        obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key]),
     }
 
-    if (action === "edit" && id) {
-        const index = medicosDB.findIndex(medico => medico.id === parseInt(id));
-        if (index !== -1) {
-            medicosDB.splice(index, 1, doctorEntry)
-        } else {
-            medicosDB.push(doctorEntry)
-        }
+    if (foundMedico) {
+        medicosDB.splice(index, 1, doctorEntry)
     } else {
         medicosDB.push(doctorEntry)
     }
