@@ -36,11 +36,26 @@
                             placeholder="Ej: 123456" required>
                     </div>
                     <div>
-                        <label for="costoConsulta" class="form-label mb-0">Valor de su consulta</label>
+                        <label for="especialidad" class="form-label mb-0">Especialidad</label>
+                        <select class="form-select form-select-md mb-0" name="especialidad">
+                            <option value="Medicina Clínica">Medicina Clínica</option>
+                            <option value="Pediatría">Pediatría</option>
+                            <option value="Cardiología">Cardiología</option>
+                            <option value="Traumatología">Traumatología</option>
+                            <option value="Dermatología">Dermatología</option>
+                            <option value="Neurología">Neurología</option>
+                            <option value="Ginecología">Ginecología</option>
+                            <option value="Oftalmología">Oftalmología</option>
+                            <option value="Psiquiatría">Psiquiatría</option>
+                            <option value="Endocrinología">Endocrinología</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="valorConsulta" class="form-label mb-0">Valor de su consulta</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" name="costoConsulta"
-                                aria-label="Amount (to the nearest dollar)" id="costoConsulta">
+                            <input type="text" class="form-control" name="valorConsulta"
+                                aria-label="Amount (to the nearest dollar)" id="valorConsulta">
                             <span class="input-group-text">.00</span>
                         </div>
                         <label for="Descripcion" class="form-label mb-0">Descripcion</label>

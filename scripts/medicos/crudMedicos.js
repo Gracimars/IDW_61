@@ -28,7 +28,7 @@ const handleSubmit = (event) => {
     let foundMedico = null;
     let foundMedicoIndex = -1;
 
-    if (action === edit && id) {
+    if (action === "edit" && id) {
         const index = medicosDB.findIndex(medico => medico.id === parseInt(id))
 
         if (index !== -1) {
@@ -43,13 +43,14 @@ const handleSubmit = (event) => {
         apellido: formData.apellido,
         matricula: parseInt(formData.matricula),
         descripcion: formData.descripcion,
+        valorConsulta: parseInt(formData.valorConsulta),
         obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key]),
         fotoUrl: foundMedico ? foundMedico.fotoUrl : `https://i.pravatar.cc/200?img=${Math.max(...medicosDB.map(medico => medico.id)) + 1}`,
-        especialidad: foundMedico ? foundMedico.especialidad : ""
+        especialidad: formData.especialidad
     }
 
     if (foundMedico) {
-        medicosDB.splice(index, 1, doctorEntry)
+        medicosDB.splice(foundMedicoIndex, 1, doctorEntry)
     } else {
         medicosDB.push(doctorEntry)
     }
