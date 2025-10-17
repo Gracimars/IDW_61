@@ -38,12 +38,14 @@ const handleSubmit = (event) => {
     }
 
     const doctorEntry = {
-        id: action === "edit" && id ? parseInt(id) : (Math.max(...medicosDB.map(medico => medico.id)) + 1),
+        id: foundMedico ? foundMedico.id : (Math.max(...medicosDB.map(medico => medico.id)) + 1),
         nombre: formData.nombre,
         apellido: formData.apellido,
         matricula: parseInt(formData.matricula),
         descripcion: formData.descripcion,
         obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key]),
+        fotoUrl: foundMedico ? foundMedico.fotoUrl : `https://i.pravatar.cc/200?img=${Math.max(...medicosDB.map(medico => medico.id)) + 1}`,
+        especialidad: foundMedico ? foundMedico.especialidad : ""
     }
 
     if (foundMedico) {
