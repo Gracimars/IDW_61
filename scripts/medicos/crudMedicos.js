@@ -1,3 +1,12 @@
+const fotoABase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
+}
+
 const getQueryParams = () => {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -11,10 +20,7 @@ const getMedicosDatabase = () => {
     return JSON.parse(medicos);
 }
 
-
-
-
-const handleSubmit = (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
     const medicosDB = getMedicosDatabase();
     // console.log(medicosDB);
@@ -39,6 +45,12 @@ const handleSubmit = (event) => {
 
     const idMedico = foundMedico?.id ?? (Math.max(...medicosDB.map(medico => medico.id)) + 1)
 
+    // console.log(formData)
+
+    const fotoBase64 = formData.fotoUrl.size ? await fotoABase64(formData.fotoUrl) : foundMedico ? foundMedico.fotoUrl : ""
+
+    // console.log(fotoBase64)
+
     const doctorEntry = {
         id: idMedico,
         nombre: formData.nombre,
@@ -47,7 +59,7 @@ const handleSubmit = (event) => {
         descripcion: formData.descripcion,
         valorConsulta: parseInt(formData.valorConsulta),
         obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key]),
-        fotoUrl: foundMedico ? foundMedico.fotoUrl : `https://i.pravatar.cc/200?img=${idMedico}`,
+        fotoUrl: foundMedico && !fotoBase64 ? foundMedico.fotoUrl : fotoBase64,
         especialidad: formData.especialidad
     }
 
