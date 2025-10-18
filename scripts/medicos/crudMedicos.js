@@ -72,6 +72,36 @@ const handleSubmit = async (event) => {
     localStorage.setItem("dbMedicos", JSON.stringify(medicosDB));
 }
 
-const formInitializer = () => {
+const formInitializer = (() => {
+    const medicosDB = getMedicosDatabase();
+    const { foundMedico, foundMedicoIndex } = useFindMedico(medicosDB);
 
-}
+    if (foundMedico && foundMedicoIndex !== -1) {
+        document.getElementById("Nombre").value = foundMedico.nombre;
+        document.getElementById("Apellido").value = foundMedico.apellido;
+        document.getElementById("Matricula").value = foundMedico.matricula;
+        document.getElementById("Especialidad").value = foundMedico.especialidad;
+        document.getElementById("ValorConsulta").value = foundMedico.valorConsulta;
+        document.getElementById("Descripcion").value = foundMedico.descripcion;
+        // document.getElementById("fotoUrl").value = foundMedico.fotoUrl;
+
+        const osMapper = foundMedico.obrasSociales.map(os => os.split(" ").join("") + "OS").forEach(os =>
+            document.getElementById(os).setAttribute("checked", true)
+        )
+
+        console.log(osMapper)
+
+        // if (foundMedico.obrasSociales.length) {
+        //     for (let i = 0; i < foundMedico.obrasSociales.length; i++) {
+        //         const element = document.getElementById(``)
+        //     }
+        // }
+
+
+
+
+
+
+
+    }
+})()

@@ -37,7 +37,7 @@
                     </div>
                     <div>
                         <label for="especialidad" class="form-label mb-0">Especialidad</label>
-                        <select class="form-select form-select-md mb-0" name="especialidad">
+                        <select id="Especialidad" class="form-select form-select-md mb-0" name="especialidad">
                             <option value="Medicina Clínica">Medicina Clínica</option>
                             <option value="Pediatría">Pediatría</option>
                             <option value="Cardiología">Cardiología</option>
@@ -54,7 +54,7 @@
                         <label for="valorConsulta" class="form-label mb-0">Valor de su consulta</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" name="valorConsulta"
+                            <input type="text" class="form-control" id="ValorConsulta" name="valorConsulta"
                                 aria-label="Amount (to the nearest dollar)" id="valorConsulta">
                             <span class="input-group-text">.00</span>
                         </div>
@@ -73,50 +73,47 @@
                 <div class="row col-12 justify-content-center px-5">
                     <div class="col-12 col-md-6 col-xl-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="osdeOS" id="osdeOS" value="OSDE"
-                                checked>
-                            <label class="form-check-label" for="osdeOS">OSDE</label>
+                            <input class="form-check-input" type="checkbox" name="OSDEOS" id="OSDEOS" value="OSDE">
+                            <label class="form-check-label" for="OSDEOS">OSDE</label>
                         </div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="pamiOS" id="pamiOS" value="PAMI"
-                                checked={isPamiChecked}>
-                            <label class="form-check-label" for="pamiOS">PAMI</label>
+                            <input class="form-check-input" type="checkbox" name="PAMIOS" id="PAMIOS" value="PAMI">
+                            <label class="form-check-label" for="PAMIOS">PAMI</label>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="galenoOS" id="galenoOS" value="Galeno"
-                                checked>
-                            <label class="form-check-label" for="galenoOS">Galeno</label>
+                            <input class="form-check-input" type="checkbox" name="GalenoOS" id="GalenoOS"
+                                value="Galeno">
+                            <label class="form-check-label" for="GalenoOS">Galeno</label>
                         </div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="swissMedicalOS" id="swissMedicalOS"
-                                value="Swiss Medical" checked>
-                            <label class="form-check-label" for="swissMedicalOS">Swiss Medical</label>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-xl-2">
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="iomaOS" id="iomaOS" value="IOMA"
-                                checked>
-                            <label class="form-check-label" for="iomaOS">IOMA</label>
-                        </div>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="medifeOS" id="medifeOS" value="Medifé"
-                                checked>
-                            <label class="form-check-label" for="medifeOS">Medifé</label>
+                            <input class="form-check-input" type="checkbox" name="SwissMedicalOS" id="SwissMedicalOS"
+                                value="Swiss Medical">
+                            <label class="form-check-label" for="SwissMedicalOS">Swiss Medical</label>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-2">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="sancorOS" id="sancorOS"
-                                value="Sancor Salud" checked>
-                            <label class="form-check-label" for="sancorOS">Sancor Salud</label>
+                            <input class="form-check-input" type="checkbox" name="IOMAOS" id="IOMAOS" value="IOMA">
+                            <label class="form-check-label" for="IOMAOS">IOMA</label>
                         </div>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" name="federadaSaludOS" id="federadaSaludOS"
-                                value="Federada Salud" checked>
-                            <label class="form-check-label" for="federadaSaludOS">Federada Salud</label>
+                            <input class="form-check-input" type="checkbox" name="MediféOS" id="MediféOS"
+                                value="Medifé">
+                            <label class="form-check-label" for="MediféOS">Medifé</label>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-2">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="SancorSaludOS" id="SancorSaludOS"
+                                value="Sancor Salud">
+                            <label class="form-check-label" for="SancorSaludOS">Sancor Salud</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" name="FederadaSaludOS" id="FederadaSaludOS"
+                                value="Federada Salud">
+                            <label class="form-check-label" for="FederadaSaludOS">Federada Salud</label>
                         </div>
                     </div>
                 </div>
