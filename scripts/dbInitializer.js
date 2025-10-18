@@ -116,4 +116,8 @@ const dataBase = [
   },
 ]
 
-localStorage.setItem('dbMedicos', JSON.stringify(dataBase))
+const prevDB = localStorage.getItem("dbMedicos");
+console.log(prevDB)
+
+if (!prevDB)
+  localStorage.setItem('dbMedicos', JSON.stringify(dataBase))
