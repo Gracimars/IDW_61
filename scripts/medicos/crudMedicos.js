@@ -85,23 +85,8 @@ const formInitializer = (() => {
         document.getElementById("Descripcion").value = foundMedico.descripcion;
         // document.getElementById("fotoUrl").value = foundMedico.fotoUrl;
 
-        const osMapper = foundMedico.obrasSociales.map(os => os.split(" ").join("") + "OS").forEach(os =>
+        foundMedico.obrasSociales.map(os => os.split(" ").join("") + "OS").forEach(os =>
             document.getElementById(os).setAttribute("checked", true)
         )
-
-        console.log(osMapper)
-
-        // if (foundMedico.obrasSociales.length) {
-        //     for (let i = 0; i < foundMedico.obrasSociales.length; i++) {
-        //         const element = document.getElementById(``)
-        //     }
-        // }
-
-
-
-
-
-
-
     }
-})()
+})
