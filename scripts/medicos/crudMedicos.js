@@ -37,15 +37,17 @@ const handleSubmit = (event) => {
         }
     }
 
+    const idMedico = foundMedico?.id ?? (Math.max(...medicosDB.map(medico => medico.id)) + 1)
+
     const doctorEntry = {
-        id: foundMedico ? foundMedico.id : (Math.max(...medicosDB.map(medico => medico.id)) + 1),
+        id: idMedico,
         nombre: formData.nombre,
         apellido: formData.apellido,
         matricula: parseInt(formData.matricula),
         descripcion: formData.descripcion,
         valorConsulta: parseInt(formData.valorConsulta),
         obrasSociales: Object.keys(formData).filter(key => key.endsWith("OS")).map(key => formData[key]),
-        fotoUrl: foundMedico ? foundMedico.fotoUrl : `https://i.pravatar.cc/200?img=${Math.max(...medicosDB.map(medico => medico.id)) + 1}`,
+        fotoUrl: foundMedico ? foundMedico.fotoUrl : `https://i.pravatar.cc/200?img=${idMedico}`,
         especialidad: formData.especialidad
     }
 
