@@ -15,6 +15,24 @@ const getQueryParams = () => {
     };
 }
 
+const useFindMedico = (database) => {
+    const { action, id } = getQueryParams();
+
+    let foundMedico = null;
+    let foundMedicoIndex = -1;
+
+    if (action === "edit" && id) {
+        const index = database.findIndex(medico => medico.id === parseInt(id))
+
+        if (index !== -1) {
+            foundMedico = database[index];
+            foundMedicoIndex = index;
+        }
+    }
+
+    return { foundMedico, foundMedicoIndex }
+}
+
 const getMedicosDatabase = () => {
     const medicos = localStorage.getItem("dbMedicos") || JSON.stringify([]);
     return JSON.parse(medicos);
@@ -23,22 +41,10 @@ const getMedicosDatabase = () => {
 const handleSubmit = async (event) => {
     event.preventDefault();
     const medicosDB = getMedicosDatabase();
+    const { foundMedico, foundMedicoIndex } = useFindMedico(medicosDB)
+
     const form = event.target;
     const formData = Object.fromEntries(new FormData(form));
-    const { action, id } = getQueryParams();
-
-
-    let foundMedico = null;
-    let foundMedicoIndex = -1;
-
-    if (action === "edit" && id) {
-        const index = medicosDB.findIndex(medico => medico.id === parseInt(id))
-
-        if (index !== -1) {
-            foundMedico = medicosDB[index];
-            foundMedicoIndex = index;
-        }
-    }
 
     const idMedico = foundMedico?.id ?? (Math.max(...medicosDB.map(medico => medico.id)) + 1)
 
@@ -64,4 +70,8 @@ const handleSubmit = async (event) => {
     }
 
     localStorage.setItem("dbMedicos", JSON.stringify(medicosDB));
+}
+
+const formInitializer = () => {
+
 }
