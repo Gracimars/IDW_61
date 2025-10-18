@@ -23,14 +23,11 @@ const getMedicosDatabase = () => {
 const handleSubmit = async (event) => {
     event.preventDefault();
     const medicosDB = getMedicosDatabase();
-    // console.log(medicosDB);
     const form = event.target;
     const formData = Object.fromEntries(new FormData(form));
     const { action, id } = getQueryParams();
-    // console.log(formData, action, id)
 
 
-    // console.log((Math.max(...medicosDB.map(medico => medico.id)) + 1))
     let foundMedico = null;
     let foundMedicoIndex = -1;
 
@@ -45,11 +42,8 @@ const handleSubmit = async (event) => {
 
     const idMedico = foundMedico?.id ?? (Math.max(...medicosDB.map(medico => medico.id)) + 1)
 
-    // console.log(formData)
 
     const fotoBase64 = formData.fotoUrl.size ? await fotoABase64(formData.fotoUrl) : foundMedico ? foundMedico.fotoUrl : ""
-
-    // console.log(fotoBase64)
 
     const doctorEntry = {
         id: idMedico,
