@@ -10,7 +10,19 @@ const icons = {
   </svg>`,
 }
 
-function renderProfessionals(professionals) {
+const getProfessionals = () => {
+  const storedData = localStorage.getItem('dbMedicos')
+  const professionalsData = storedData ? JSON.parse(storedData) : []
+  return professionalsData
+}
+
+function renderProfessionals() {
+  const professionals = getProfessionals()
+  if (!professionals) {
+    console.log('Error al cargar los profesionales.')
+    return
+  }
+
   const container = document.getElementById('rowDoctor')
   if (!container) {
     console.error('Ha ocurrido un error.')
@@ -66,9 +78,3 @@ function renderProfessionals(professionals) {
     container.appendChild(row)
   })
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const storedData = localStorage.getItem('dbMedicos')
-  const professionals = storedData ? JSON.parse(storedData) : []
-  renderProfessionals(professionals)
-})
