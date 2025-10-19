@@ -90,3 +90,15 @@ const formInitializer = (() => {
         )
     }
 })
+
+function deleteMedico(id) {
+    const medicosDb = getMedicosDatabase();
+    const index = medicosDb.findIndex(medico => medico.id === parseInt(id))
+ if (medicosDb[index]?.id === id){
+    medicosDb.splice(index,1)
+    localStorage.setItem("dbMedicos", JSON.stringify(medicosDb));
+ } else{
+    alert ("No se encontro médico con el id proporcionado")
+ }
+
+}
