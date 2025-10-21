@@ -40,6 +40,7 @@ const getMedicosDatabase = () => {
 
 const handleSubmit = async (event) => {
     event.preventDefault();
+
     const medicosDB = getMedicosDatabase();
     const { foundMedico, foundMedicoIndex } = useFindMedico(medicosDB)
 
@@ -68,6 +69,11 @@ const handleSubmit = async (event) => {
     } else {
         medicosDB.push(doctorEntry)
     }
+    const myModalAlternative = new bootstrap.Modal('#modalMedicos', { backdrop: 'static', keyboard: false, })
+
+    const modalContent = document.getElementById("modal-medicos__body");
+    modalContent.innerHTML = `${foundMedico ? "Modificaste" : "Creaste"} al médico con éxito!`
+    myModalAlternative.show()
 
     localStorage.setItem("dbMedicos", JSON.stringify(medicosDB));
 }
@@ -94,11 +100,11 @@ const formInitializer = (() => {
 function deleteMedico(id) {
     const medicosDb = getMedicosDatabase();
     const index = medicosDb.findIndex(medico => medico.id === parseInt(id))
- if (medicosDb[index]?.id === id){
-    medicosDb.splice(index,1)
-    localStorage.setItem("dbMedicos", JSON.stringify(medicosDb));
- } else{
-    alert ("No se encontro médico con el id proporcionado")
- }
+    if (medicosDb[index]?.id === id) {
+        medicosDb.splice(index, 1)
+        localStorage.setItem("dbMedicos", JSON.stringify(medicosDb));
+    } else {
+        alert("No se encontro médico con el id proporcionado")
+    }
 
 }
