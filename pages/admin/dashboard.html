@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/reset.css" />
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../../styles/reset.css" />
+    <link rel="stylesheet" href="../../styles/main.css" />
 
     <title>Profesionales</title>
   </head>
@@ -20,7 +20,7 @@
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
           <a href="../index.html" class="logo-link link-underline link-underline-opacity-0">
-            <h1 class="logo text-nowrap">Clínica IDW</h1>
+            <h1 class="logo">Clínica IDW</h1>
           </a>
           <button
             class="navbar-toggler"
@@ -37,8 +37,7 @@
             <div
               class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
             >
-              <a class="btn btn-primary" href="login.html" role="button">Iniciar Sesión</a>
-              <a class="btn btn-primary" href="signup.html" role="button">Registrarse</a>
+              <a class="btn btn-primary" href="login.html" role="button">Cerrar Sesión</a>
             </div>
 
             <ul class="navbar-nav order-2 order-md-1">
@@ -51,7 +50,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="about_us.html">Sobre Nosotros</a>
+                <a class="nav-link" href="about_us.html">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.html">Contacto</a>
@@ -62,18 +61,34 @@
       </nav>
     </header>
 
-    <main id="catalog" class="my-5 pt-4">
-      <section class="container text-center mb-5 my-5">
-        <h2 class="fw-bold h1 py-3 my-5">Nuestros Profesionales</h2>
-
-        <div
-          id="rowDoctor"
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5"
-        ></div>
-      </section>
+    <main id="dashboard" class="mt-5 pt-4 mb-4 pb-4">
+      <div class="container text-center mb-5">
+        <h2 class="fw-bold h1 py-2 my-4 text-start">Dashboard</h2>
+        <span class="text-end w-100 d-block mb-3">
+          <a href="medicos/form.html?action=create" class="btn btn-primary" role="button"
+            >Agregar</a
+          >
+        </span>
+        <div class="table-responsive card">
+          <table class="table table-striped table-hover table-striped mb-0">
+            <thead class="fw-bold">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Especialidad</th>
+                <th scope="col">Obras Sociales</th>
+                <th scope="col">Matrícula</th>
+                <th scope="col">Valor de consulta</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="rowDoctor" class="table-group-divider"></tbody>
+          </table>
+        </div>
+      </div>
     </main>
 
-    <footer class="bg-primary text-white p-4 mt-5">
+    <footer class="bg-primary text-white p-4 mt-4">
       <div>
         <div class="text-center text-xl-start container col-12">
           <div class="row">
@@ -173,10 +188,10 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/dbInitializer.js"></script>
-    <script src="../scripts/catalogRenderer.js"></script>
-    <script>  
-      renderCatalog()
+    <script src="../../scripts/dbInitializer.js"></script>
+    <script src="../../scripts/tableRenderer.js"></script>
+    <script>
+      renderProfessionals()
     </script>
   </body>
 </html>

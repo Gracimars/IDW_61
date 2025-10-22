@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,15 @@
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/main.css" />
 
-    <title>Profesionales</title>
+    <title>Login</title>
   </head>
 
-  <body id="doctor-catalog">
+  <body>
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
           <a href="../index.html" class="logo-link link-underline link-underline-opacity-0">
-            <h1 class="logo text-nowrap">Clínica IDW</h1>
+            <h1 class="logo">Clínica IDW</h1>
           </a>
           <button
             class="navbar-toggler"
@@ -34,24 +34,15 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
-            <div
-              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
-            >
-              <a class="btn btn-primary" href="login.html" role="button">Iniciar Sesión</a>
-              <a class="btn btn-primary" href="signup.html" role="button">Registrarse</a>
-            </div>
-
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
                 <a class="nav-link" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="doctor_catalog.html"
-                  >Profesionales</a
-                >
+                <a class="nav-link" href="doctor_catalog.html">Profesionales</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="about_us.html">Sobre Nosotros</a>
+                <a class="nav-link" href="about_us.html">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.html">Contacto</a>
@@ -62,18 +53,30 @@
       </nav>
     </header>
 
-    <main id="catalog" class="my-5 pt-4">
-      <section class="container text-center mb-5 my-5">
-        <h2 class="fw-bold h1 py-3 my-5">Nuestros Profesionales</h2>
-
-        <div
-          id="rowDoctor"
-          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center mb-5"
-        ></div>
-      </section>
+    <main id="login" class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="card p-4 shadow w-100 background_verdecito">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="juanperez@gmail.com"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+        </form>
+      </div>
     </main>
 
-    <footer class="bg-primary text-white p-4 mt-5">
+    <footer class="bg-primary text-white p-4">
       <div>
         <div class="text-center text-xl-start container col-12">
           <div class="row">
@@ -173,10 +176,5 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/dbInitializer.js"></script>
-    <script src="../scripts/catalogRenderer.js"></script>
-    <script>  
-      renderCatalog()
-    </script>
   </body>
 </html>

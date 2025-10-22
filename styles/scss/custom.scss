@@ -175,3 +175,10 @@ body {
     }
   }
 }
+
+/***************************** Login and Signup *****************************/
+
+#login > div:first-child,
+#signup > div:first-child {
+  max-width: 400px;
+}
