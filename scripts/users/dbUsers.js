@@ -2,13 +2,13 @@ const users = [
   {
     id: 1,
     role: "administrator",
-    username: "admin",
+    email: "admin@admin.com",
     password: "IDW2025!@",
   },
   {
     id: 2,
     role: "user",
-    username: "usuarioBase",
+    email: "usuarioBase@idw2025UNER.com",
     password: "usuario123",
   },
 ];
