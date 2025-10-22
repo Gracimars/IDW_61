@@ -36,7 +36,7 @@ const isProtectedRoute = () => window.location.pathname.includes("/admin/");
 
 if (isUserLoggedIn()) {
   const authButtons = document.getElementById("auth-buttons-group");
-  authButtons.classList.add("d-none");
+  authButtons?.classList?.add("d-none");
 }
 
 if (isAdmin()) {
