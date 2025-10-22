@@ -57,7 +57,7 @@ function renderProfessionals() {
       <td>$${doc.valorConsulta}</td>
       <td class="text-center">
         <div class="d-flex gap-1 justify-content-center">
-          <a href="medicos/view.html?id=${
+          <a href="medicos/viewProfesional.html?id=${
             doc.id
           }" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ver">
             ${icons.view}
