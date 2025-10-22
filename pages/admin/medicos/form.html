@@ -34,7 +34,8 @@
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
             <div
-              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0">
+              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
+              id="auth-buttons-group">
               <a class="btn btn-primary" href="#" role="button"
                 >Iniciar Sesión</a
               >
@@ -43,21 +44,47 @@
 
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
-                <a class="nav-link" href="../index.html">Inicio</a>
+                <a class="nav-link" href="/index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctor_catalog.html">Profesionales</a>
+                <a class="nav-link" href="/pages/doctor_catalog.html"
+                  >Profesionales</a
+                >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link active"
+                  class="nav-link"
                   aria-current="page"
-                  href="about_us.html"
+                  href="/pages/about_us.html"
                   >Sobre Nosotros</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact_us.html">Contacto</a>
+                <a class="nav-link" href="/pages/contact_us.html">Contacto</a>
+              </li>
+
+              <li
+                class="nav-item dropdown d-none active"
+                id="admin-access-routes">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Administración
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/pages/admin/dashboard.html"
+                      >Medicos</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Obras Sociales</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
