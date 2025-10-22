@@ -35,7 +35,8 @@
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
             <div
-              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0">
+              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
+              id="auth-buttons-group">
               <a class="btn btn-primary" href="login.html" role="button"
                 >Iniciar Sesión</a
               >
@@ -63,6 +64,30 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.html">Contacto</a>
+              </li>
+
+              <li class="nav-item dropdown d-none" id="admin-access-routes">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Administración
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="/pages/admin/medicos/dashboard.html"
+                      >Medicos</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">Obras Sociales</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -182,6 +207,8 @@
     <script src="../scripts/dbInitializer.js"></script>
     <script src="../scripts/catalogRenderer.js"></script>
     <script src="/scripts/users/dbUsers.js"></script>
+    <script src="/scripts/users/authVerify.js"></script>
+
     <script>
       renderCatalog();
     </script>
