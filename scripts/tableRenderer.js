@@ -10,6 +10,8 @@ const icons = {
   </svg>`,
 }
 
+let deleteId = null
+
 const getProfessionals = () => {
   const storedData = localStorage.getItem('dbMedicos')
   const professionalsData = storedData ? JSON.parse(storedData) : []
@@ -57,7 +59,7 @@ function renderProfessionals() {
       <td>$${doc.valorConsulta}</td>
       <td class="text-center">
         <div class="d-flex gap-1 justify-content-center">
-          <a href="medicos/view.html?id=${
+          <a href="medicos/viewProfesional.html?id=${
             doc.id
           }" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ver">
             ${icons.view}
@@ -69,7 +71,9 @@ function renderProfessionals() {
           </a>
           <button data-id="${
             doc.id
-          }" class="btn btn-outline-danger btn-sm delete-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar">
+          }" class="btn btn-outline-danger btn-sm delete-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Eliminar" onClick="handleDelete(${
+      doc.id
+    })">
             ${icons.delete}
           </button>
         </div>
@@ -77,4 +81,20 @@ function renderProfessionals() {
     `
     container.appendChild(row)
   })
+}
+
+function handleDelete(id) {
+  deleteId = id
+  const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'))
+  deleteModal.show()
+}
+
+function confirmDelete() {
+  if (deleteId) {
+    deleteMedico(deleteId)
+    renderProfessionals()
+    deleteId = null
+    const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'))
+    deleteModal.hide()
+  }
 }

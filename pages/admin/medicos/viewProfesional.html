@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,17 +9,17 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/reset.css" />
-    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
 
-    <title>Login</title>
+    <title>Profesionales</title>
   </head>
 
-  <body>
+  <body id="">
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
-          <a href="../index.html" class="logo-link link-underline link-underline-opacity-0">
+          <a href="/index.html" class="logo-link link-underline link-underline-opacity-0">
             <h1 class="logo text-nowrap">Clínica IDW</h1>
           </a>
           <button
@@ -36,7 +36,7 @@
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
-                <a class="nav-link" href="../index.html">Inicio</a>
+                <a class="nav-link" href="/index.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="doctor_catalog.html">Profesionales</a>
@@ -47,37 +47,50 @@
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.html">Contacto</a>
               </li>
+
+              <li class="nav-item dropdown d-none" id="admin-access-routes">
+                <a
+                  class="nav-link dropdown-toggle active"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Administración
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/pages/admin/dashboard.html">Medicos</a>
+                  </li>
+                  <li><a class="dropdown-item text-nowrap" href="#">Obras Sociales</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                  <li>
+                    <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
+                      Cerrar sesión
+                    </button>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <main id="login" class="container d-flex justify-content-center align-items-center vh-100">
-      <div class="card p-4 shadow w-100 background_verdecito">
-        <h2 class="text-center mb-4">Iniciar Sesión</h2>
-        <form onSubmit="handleLogin(event)">
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="juanperez@gmail.com"
-              name="email"
-              required
-            />
+    <main id="professional-view" class="mt-5 pt-4">
+      <div id="professional-card"></div>
+      <div class="container mt-4 mb-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <a href="/pages/admin/dashboard.html" class="btn btn-primary">Volver</a>
           </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" required />
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
-        </form>
+        </div>
       </div>
     </main>
 
-    <footer class="bg-primary text-white p-4">
+    <footer class="bg-primary text-white p-4 mt-5">
       <div>
         <div class="text-center text-xl-start container col-12">
           <div class="row">
@@ -167,10 +180,6 @@
       </div>
     </footer>
 
-    <script src="/scripts/dbInitializer.js"></script>
-    <script src="/scripts/users/dbUsers.js"></script>
-    <script src="/scripts/users/authVerify.js"></script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -181,5 +190,12 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
+    <script src="/scripts/users/authVerify.js"></script>
+    <script src="/scripts/viewRenderer.js"></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search)
+      const id = urlParams.get('id')
+      renderProfessionalView(id)
+    </script>
   </body>
 </html>

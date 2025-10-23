@@ -27,9 +27,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
-          <div class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0">
-            <a class="btn btn-primary text-nowrap" href="#" role="button">Iniciar Sesión</a>
-            <a class="btn btn-primary" href="#" role="button">Registrarse</a>
+          <div class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
+          id="auth-buttons-group">
+            <a class="btn btn-primary text-nowrap" href="login.html" role="button">Iniciar Sesión</a>
+            <a class="btn btn-primary" href="signup.html" role="button">Registrarse</a>
           </div>
 
           <ul class="navbar-nav order-2 order-md-1">
@@ -45,6 +46,35 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="contact_us.html">Contacto</a>
             </li>
+
+            <li class="nav-item dropdown d-none" id="admin-access-routes">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Administración
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="/pages/admin/dashboard.html"
+                      >Medicos</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item text-nowrap" href="#">Obras Sociales</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                   <li>
+                    <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
+                      Cerrar sesión
+                    </button>
+                  </li>
+                </ul>
+              </li>
           </ul>
         </div>
       </div>
@@ -192,6 +222,10 @@
       </div>
     </div>
   </footer>
+
+  <script src="/scripts/dbInitializer.js"></script>
+  <script src="/scripts/users/dbUsers.js"></script>
+    <script src="/scripts/users/authVerify.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
