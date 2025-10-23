@@ -5,13 +5,12 @@ const getProfessionals = () => {
 }
 
 function renderProfessionalView(id) {
-  console.log(id)
   const professionals = getProfessionals()
   if (!professionals) {
     return
   }
 
-  const container = document.getElementById('professional-view')
+  const container = document.getElementById('professional-card')
   if (!container) {
     console.error('Ha ocurrido un error.')
     return
@@ -45,7 +44,6 @@ function renderProfessionalView(id) {
                 <p class="card-text text-muted"><strong>Valor de Consulta:</strong> ${doc.valorConsulta}</p>
                 <p class="card-text text-muted"><strong>Obras Sociales:  ${badges}</strong></p>
               </div>
-              <a href="../../pages/doctor_catalog.html" class="btn btn-primary mt-5">Volver al Catálogo</a>
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ function renderCatalog() {
           <h5 class="card-title mb-1">Dr. ${doc.apellido}, ${doc.nombre}</h5>
           <p class="card-text text-muted mb-2">${doc.especialidad}</p>
           <p class="card-text text-muted mb-3"><small>Matrícula N° ${doc.matricula}</small></p>
-          <a href="../pages/admin/medicos/viewProfessional.html?id=${doc.id}" class="btn btn-outline-primary mt-auto">Ver</a>
+          <a href="../pages/viewProfessional.html?id=${doc.id}" class="btn btn-outline-primary mt-auto">Ver</a>
         </div>
       </div>
     `

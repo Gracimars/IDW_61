@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../../styles/reset.css" />
-    <link rel="stylesheet" href="../../../styles/main.css" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
 
     <title>Profesionales</title>
   </head>
@@ -19,8 +19,8 @@
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
-          <a href="../index.html" class="logo-link link-underline link-underline-opacity-0">
-            <h1 class="logo">Clínica IDW</h1>
+          <a href="/index.html" class="logo-link link-underline link-underline-opacity-0">
+            <h1 class="logo text-nowrap">Clínica IDW</h1>
           </a>
           <button
             class="navbar-toggler"
@@ -34,24 +34,44 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
-            <div
-              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
-            >
-              <a class="btn btn-primary" href="login.html" role="button">Cerrar Sesión</a>
-            </div>
-
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
-                <a class="nav-link" href="../../../index.html">Inicio</a>
+                <a class="nav-link" href="/index.html">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="doctor_catalog.html">Profesionales</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about_us.html">Sobre Nosotros</a>
+                <a class="nav-link text-nowrap" href="about_us.html">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact_us.html">Contacto</a>
+              </li>
+
+              <li class="nav-item dropdown d-none" id="admin-access-routes">
+                <a
+                  class="nav-link dropdown-toggle active"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Administración
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="/pages/admin/dashboard.html">Medicos</a>
+                  </li>
+                  <li><a class="dropdown-item text-nowrap" href="#">Obras Sociales</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                  <li>
+                    <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
+                      Cerrar sesión
+                    </button>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -59,8 +79,15 @@
       </nav>
     </header>
 
-    <main id="view" class="mt-5 pt-4">
-      <div id="professional-view"></div>
+    <main id="professional-view" class="mt-5 pt-4">
+      <div id="professional-card"></div>
+      <div class="container mt-4 mb-5">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <a href="/pages/admin/dashboard.html" class="btn btn-primary">Volver</a>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="bg-primary text-white p-4 mt-5">
@@ -163,7 +190,8 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <script src="../../../scripts/viewRenderer.js"></script>
+    <script src="/scripts/users/authVerify.js"></script>
+    <script src="/scripts/viewRenderer.js"></script>
     <script>
       const urlParams = new URLSearchParams(window.location.search)
       const id = urlParams.get('id')

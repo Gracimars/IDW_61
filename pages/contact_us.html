@@ -29,8 +29,8 @@
         <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
           <div class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
           id="auth-buttons-group">
-            <a class="btn btn-primary text-nowrap" href="#" role="button">Iniciar Sesión</a>
-            <a class="btn btn-primary" href="#" role="button">Registrarse</a>
+            <a class="btn btn-primary text-nowrap" href="login.html" role="button">Iniciar Sesión</a>
+            <a class="btn btn-primary" href="signup.html" role="button">Registrarse</a>
           </div>
 
           <ul class="navbar-nav order-2 order-md-1">
@@ -64,9 +64,14 @@
                       >Medicos</a
                     >
                   </li>
-                  <li><a class="dropdown-item" href="#">Obras Sociales</a></li>
+                  <li><a class="dropdown-item text-nowrap" href="#">Obras Sociales</a></li>
                   <li>
                     <a class="dropdown-item" href="#">Especialidades</a>
+                  </li>
+                   <li>
+                    <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
+                      Cerrar sesión
+                    </button>
                   </li>
                 </ul>
               </li>
