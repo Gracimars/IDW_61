@@ -22,7 +22,7 @@ const handleLogin = (event) => {
   }
 
   sessionStorage.setItem("user", JSON.stringify(loginUser));
-  window.location.href = "../../index.html";
+  window.location.href = "/index.html";
 };
 
 const isUserLoggedIn = () => {
@@ -36,7 +36,7 @@ const isProtectedRoute = () => window.location.pathname.includes("/admin/");
 
 const handleLogout = () => {
   sessionStorage.removeItem("user");
-  window.location.href = "../../pages/login.html";
+  window.location.href = "/index.html";
 };
 
 if (isUserLoggedIn()) {
@@ -50,5 +50,5 @@ if (isAdmin()) {
 }
 
 if (isProtectedRoute() && !isAdmin()) {
-  window.location.href = "../../pages/login.html";
+  window.location.href = "/pages/login.html";
 }
