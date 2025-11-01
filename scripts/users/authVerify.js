@@ -1,28 +1,63 @@
-const getUsersDatabase = () => {
-  const users = localStorage.getItem("dbUsers") || JSON.stringify([]);
-  return JSON.parse(users);
-};
+const userResponseAdapter = (user) => ({
+  id: user.id,
+  nombre: user.firstName,
+  apellido: user.lastName,
+  email: user.email,
+  username: user.username,
+  role: user.role || "user",
+});
 
-const handleLogin = (event) => {
-  const usersDB = getUsersDatabase();
-
+const handleLogin = async (event) => {
   event.preventDefault();
   const form = event.target;
   const formData = Object.fromEntries(new FormData(form));
 
-  const loginUser = usersDB.find(
-    (user) =>
-      user.email === formData.email && user.password === formData.password
-  );
+  try {
+    const loginResponse = await fetch("https://dummyjson.com/user/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: formData.username,
+        password: formData.password,
+        expiresInMins: 1440,
+      }),
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("credenciales invalidas che");
+      }
+      return res.json();
+    });
 
-  if (!loginUser) {
-    sessionStorage.setItem("userRole", null);
-    alert("Credenciales inválidas. Por favor, intenta de nuevo.");
-    return;
+    const currentUser = await fetch("https://dummyjson.com/user/me", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${loginResponse.accessToken}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error(
+          "fallo el EP para traer el usuario locooooo, llamen al backend"
+        );
+      }
+      return res.json();
+    });
+
+    const userSanitizado = userResponseAdapter(currentUser);
+
+    console.log(userSanitizado);
+
+    sessionStorage.setItem("user", JSON.stringify(userSanitizado));
+    sessionStorage.setItem(
+      "accessToken",
+      JSON.stringify(loginResponse.accessToken)
+    );
+
+    window.location.href = "/index.html";
+  } catch (error) {
+    alert(
+      "Hay un error en las credenciales. Por favor, verificalas e intenta nuevamente."
+    );
   }
-
-  sessionStorage.setItem("user", JSON.stringify(loginUser));
-  window.location.href = "/index.html";
 };
 
 const isUserLoggedIn = () => {
@@ -30,7 +65,7 @@ const isUserLoggedIn = () => {
 };
 
 const isAdmin = () =>
-  JSON.parse(sessionStorage.getItem("user"))?.role === "administrator";
+  JSON.parse(sessionStorage.getItem("user"))?.role === "admin";
 
 const isProtectedRoute = () => window.location.pathname.includes("/admin/");
 
