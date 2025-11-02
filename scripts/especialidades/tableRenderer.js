@@ -18,11 +18,18 @@ function handleEditEspecialidad(id) {
   url.searchParams.set("id", id);
   window.history.pushState({}, "", url);
 
-  const editModal = new bootstrap.Modal(document.getElementById("editModal"));
+  const editModal = new bootstrap.Modal(
+    document.getElementById("editModalEspecialidades")
+  );
   editModal.show();
 }
 
 function cancelEditEspecialidad() {
+  const inputFormEspecialidades = document.getElementById(
+    "especialidadNameInput"
+  );
+
+  inputFormEspecialidades.value = "";
   const url = new URL(window.location);
   url.searchParams.delete("id");
   window.history.pushState({}, "", url);
@@ -95,7 +102,7 @@ function confirmDeleteEspecialidad() {
     renderEspecialidades();
     deleteId = null;
     const deleteModal = bootstrap.Modal.getInstance(
-      document.getElementById("deleteModal")
+      document.getElementById("deleteModalEspecialidad")
     );
     deleteModal.hide();
   }
