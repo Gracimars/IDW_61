@@ -1,11 +1,11 @@
-const getProfessionals = () => {
+const getUsers = () => {
   const storedData = localStorage.getItem('dbMedicos')
   const professionalsData = storedData ? JSON.parse(storedData) : []
   return professionalsData
 }
 
 function renderProfessionalView(id) {
-  const professionals = getProfessionals()
+  const professionals = getUsers()
   if (!professionals) {
     return
   }
