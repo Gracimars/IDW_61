@@ -9,13 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="../../../styles/reset.css" />
+    <link rel="stylesheet" href="../../../styles/main.css" />
 
-    <title>Profesionales</title>
+    <title>Dashboard / Usuarios</title>
   </head>
 
-  <body id="">
+  <body id="doctor-catalog">
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
@@ -34,33 +34,25 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
-            <div
-              class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
-              id="auth-buttons-group"
-            >
-              <a class="btn btn-primary text-nowrap" href="login.html" role="button"
-                >Iniciar Sesión</a
-              >
-              <a class="btn btn-primary" href="signup.html" role="button">Registrarse</a>
-            </div>
-
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
                 <a class="nav-link" href="/index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="doctor_catalog.html">Profesionales</a>
+                <a class="nav-link" aria-current="page" href="/pages/doctor_catalog.html"
+                  >Profesionales</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="about_us.html">Sobre Nosotros</a>
+                <a class="nav-link text-nowrap" href="/pages/about_us.html">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact_us.html">Contacto</a>
+                <a class="nav-link" href="/pages/contact_us.html">Contacto</a>
               </li>
 
               <li class="nav-item dropdown d-none" id="admin-access-routes">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link dropdown-toggle active"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -70,9 +62,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/usuarios/dashboard.html"
-                      >Usuarios</a
-                    >
+                    <a class="dropdown-item" href="#">Usuarios</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="/pages/admin/dashboard.html">Medicos</a>
@@ -81,11 +71,7 @@
                     <a class="dropdown-item text-nowrap" href="#">Obras Sociales</a>
                   </li>
                   <li>
-                    <a
-                      class="dropdown-item"
-                      href="/pages/admin/especialidades/dashboard.html"
-                      >Especialidades</a
-                    >
+                    <a class="dropdown-item" href="#">Especialidades</a>
                   </li>
                   <li>
                     <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
@@ -100,18 +86,33 @@
       </nav>
     </header>
 
-    <main id="professional-view" class="mt-5 pt-4">
-      <div id="professional-card"></div>
-      <div class="container mt-4 mb-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <a href="/pages/doctor_catalog.html" class="btn btn-primary">Volver al Catálogo</a>
-          </div>
+    <main id="dashboard" class="mt-5 pt-4 mb-4 pb-4">
+      <div class="container text-center mb-5">
+        <h2 class="fw-bold h1 py-2 my-4 text-start">Dashboard / Usuarios</h2>
+        <span class="text-end w-100 d-block mb-3">
+          <a href="#" class="btn btn-primary" role="button">Agregar</a>
+        </span>
+        <div class="table-responsive card">
+          <table class="table table-striped table-hover table-striped mb-0">
+            <thead class="fw-bold">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Género</th>
+                <th scope="col">Email</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="rowUser" class="table-group-divider"></tbody>
+          </table>
         </div>
       </div>
     </main>
 
-    <footer class="bg-primary text-white p-4 mt-5">
+    <footer class="bg-primary text-white p-4 mt-4">
       <div>
         <div class="text-center text-xl-start container col-12">
           <div class="row">
@@ -211,13 +212,7 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <script src="../scripts/dbInitializer.js"></script>
-    <script src="../scripts/users/authVerify.js"></script>
-    <script src="../scripts/viewRenderer.js"></script>
-    <script>
-      const urlParams = new URLSearchParams(window.location.search)
-      const id = urlParams.get('id')
-      renderProfessionalView(id)
-    </script>
+    <script src="../../../scripts/users/tableRenderer.js"></script>
+    <script src="../../../scripts/users/authVerify.js"></script>
   </body>
 </html>
