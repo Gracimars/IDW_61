@@ -8,52 +8,64 @@ const icons = {
   delete: `<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'>
     <path d='M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z' />
   </svg>`,
-}
+};
 
-let deleteId = null
+let deleteId = null;
 
 const getProfessionals = () => {
-  const storedData = localStorage.getItem('dbMedicos')
-  const professionalsData = storedData ? JSON.parse(storedData) : []
-  return professionalsData
-}
+  const storedData = localStorage.getItem("dbMedicos");
+  const professionalsData = storedData ? JSON.parse(storedData) : [];
+  return professionalsData;
+};
+
+const getEspecialidades = () => {
+  return JSON.parse(localStorage.getItem("dbEspecialidades")) || [];
+};
 
 function renderProfessionals() {
-  const professionals = getProfessionals()
+  const professionals = getProfessionals();
+  const especialidades = getEspecialidades();
+
   if (!professionals) {
-    console.log('Error al cargar los profesionales.')
-    return
+    console.log("Error al cargar los profesionales.");
+    return;
   }
 
-  const container = document.getElementById('rowDoctor')
+  const container = document.getElementById("rowDoctor");
   if (!container) {
-    console.error('Ha ocurrido un error.')
-    return
+    console.error("Ha ocurrido un error.");
+    return;
   }
 
-  container.innerHTML = ''
+  container.innerHTML = "";
 
   if (professionals.length === 0) {
-    const emptyRow = document.createElement('tr')
+    const emptyRow = document.createElement("tr");
     emptyRow.innerHTML = `
       <td colspan="7" class="text-center text-muted py-4">
         No hay médicos disponibles.
       </td>
-    `
-    container.appendChild(emptyRow)
-    return
+    `;
+    container.appendChild(emptyRow);
+    return;
   }
 
   professionals.forEach((doc, index) => {
     const badges = doc.obrasSociales
-      .map((os) => `<span class="badge text-dark background_lightBrown">${os}</span>`)
-      .join(' ')
+      .map(
+        (os) =>
+          `<span class="badge text-dark background_lightBrown">${os}</span>`
+      )
+      .join(" ");
 
-    const row = document.createElement('tr')
+    const row = document.createElement("tr");
     row.innerHTML = `
       <th scope="row">${index + 1}</th>
       <td>${doc.nombre} ${doc.apellido}</td>
-      <td>${doc.especialidad}</td>
+      <td>${
+        especialidades.find((esp) => esp.id === doc.especialidad)?.nombre ||
+        "---"
+      }</td>
       <td>${badges}</td>
       <td>${doc.matricula}</td>
       <td>$${doc.valorConsulta}</td>
@@ -78,23 +90,27 @@ function renderProfessionals() {
           </button>
         </div>
       </td>
-    `
-    container.appendChild(row)
-  })
+    `;
+    container.appendChild(row);
+  });
 }
 
 function handleDelete(id) {
-  deleteId = id
-  const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'))
-  deleteModal.show()
+  deleteId = id;
+  const deleteModal = new bootstrap.Modal(
+    document.getElementById("deleteModal")
+  );
+  deleteModal.show();
 }
 
 function confirmDelete() {
   if (deleteId) {
-    deleteMedico(deleteId)
-    renderProfessionals()
-    deleteId = null
-    const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'))
-    deleteModal.hide()
+    deleteMedico(deleteId);
+    renderProfessionals();
+    deleteId = null;
+    const deleteModal = bootstrap.Modal.getInstance(
+      document.getElementById("deleteModal")
+    );
+    deleteModal.hide();
   }
 }
