@@ -17370,6 +17370,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+body main {
+  flex-grow: 1;
+}
 
 /***************************** Common clasess *****************************/
 .background_verdecito {
