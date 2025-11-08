@@ -5,65 +5,68 @@ const icons = {
   delete: `<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'>
     <path d='M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z' />
   </svg>`,
-};
+}
 
-let deleteId = null;
+let deleteId = null
 
 const getEspecialidades = () => {
-  return JSON.parse(localStorage.getItem("dbEspecialidades")) || [];
-};
+  return JSON.parse(localStorage.getItem('dbEspecialidades')) || []
+}
 
 function handleEditEspecialidad(id) {
-  const url = new URL(window.location);
-  url.searchParams.set("id", id);
-  window.history.pushState({}, "", url);
+  const url = new URL(window.location)
+  url.searchParams.set('id', id)
+  window.history.pushState({}, '', url)
 
-  const editModal = new bootstrap.Modal(
-    document.getElementById("editModalEspecialidades")
-  );
-  editModal.show();
+  const especialidades = getEspecialidades()
+  const especialidad = especialidades.find((os) => os.id === id)
+
+  const inputFormName = document.getElementById('especialidadNameInput')
+
+  inputFormName.value = especialidad.nombre || ''
+
+  const editModal = new bootstrap.Modal(document.getElementById('editModalEspecialidades'))
+  editModal.show()
 }
 
 function cancelEditEspecialidad() {
-  const inputFormEspecialidades = document.getElementById(
-    "especialidadNameInput"
-  );
+  const inputFormEspecialidades = document.getElementById('especialidadNameInput')
 
-  inputFormEspecialidades.value = "";
-  const url = new URL(window.location);
-  url.searchParams.delete("id");
-  window.history.pushState({}, "", url);
+  inputFormEspecialidades.value = ''
+  const url = new URL(window.location)
+  url.searchParams.delete('id')
+  window.history.pushState({}, '', url)
 }
 
 function renderEspecialidades() {
-  const especialidades = getEspecialidades();
+  const especialidades = getEspecialidades()
 
   if (!especialidades) {
-    console.error("Error al cargar las especialidades.");
-    return;
+    console.error('Error al cargar las especialidades.')
+    return
   }
 
-  const container = document.getElementById("rowEspecialidades");
+  const container = document.getElementById('rowEspecialidades')
   if (!container) {
-    console.error("Ha ocurrido un error en la carga.");
-    return;
+    console.error('Ha ocurrido un error en la carga.')
+    return
   }
 
-  container.innerHTML = "";
+  container.innerHTML = ''
 
   if (especialidades.length === 0) {
-    const emptyRow = document.createElement("tr");
+    const emptyRow = document.createElement('tr')
     emptyRow.innerHTML = `
       <td colspan="7" class="text-center text-muted py-4">
         No hay especialidades habilitadas.
       </td>
-    `;
-    container.appendChild(emptyRow);
-    return;
+    `
+    container.appendChild(emptyRow)
+    return
   }
 
   especialidades.forEach((especialidad, index) => {
-    const row = document.createElement("tr");
+    const row = document.createElement('tr')
     row.innerHTML = `
       <th scope="row">${index + 1}</th>
       <td>${especialidad.nombre}</td>
@@ -83,27 +86,25 @@ function renderEspecialidades() {
           </button>
         </div>
       </td>
-    `;
-    container.appendChild(row);
-  });
+    `
+    container.appendChild(row)
+  })
 }
 
 function handleDeleteEspecialidad(id) {
-  deleteId = id;
-  const deleteModal = new bootstrap.Modal(
-    document.getElementById("deleteModalEspecialidad")
-  );
-  deleteModal.show();
+  deleteId = id
+  const deleteModal = new bootstrap.Modal(document.getElementById('deleteModalEspecialidad'))
+  deleteModal.show()
 }
 
 function confirmDeleteEspecialidad() {
   if (deleteId) {
-    deleteEspecialidad(deleteId);
-    renderEspecialidades();
-    deleteId = null;
+    deleteEspecialidad(deleteId)
+    renderEspecialidades()
+    deleteId = null
     const deleteModal = bootstrap.Modal.getInstance(
-      document.getElementById("deleteModalEspecialidad")
-    );
-    deleteModal.hide();
+      document.getElementById('deleteModalEspecialidad')
+    )
+    deleteModal.hide()
   }
 }
