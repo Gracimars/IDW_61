@@ -44,7 +44,9 @@ const handleLogin = async (event) => {
 
     const userSanitizado = userResponseAdapter(currentUser);
 
-    console.log(userSanitizado);
+    if (userSanitizado?.role !== "admin") {
+      throw new Error("no es admin este, no puede hacer login");
+    }
 
     sessionStorage.setItem("user", JSON.stringify(userSanitizado));
     sessionStorage.setItem(
@@ -54,9 +56,7 @@ const handleLogin = async (event) => {
 
     window.location.href = "/index.html";
   } catch (error) {
-    alert(
-      "Hay un error en las credenciales. Por favor, verificalas e intenta nuevamente."
-    );
+    alert(`${error}.`);
   }
 };
 
