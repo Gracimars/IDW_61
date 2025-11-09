@@ -59,6 +59,86 @@ const handleSubmitTurno = (event) => {
   renderTurnos();
 };
 
+const handleSubmitBatch = (event) => {
+  event.preventDefault();
+
+  const turnosDB = getTurnosDatabase();
+  const form = event.target;
+  const formData = Object.fromEntries(new FormData(form));
+
+  const diaSemana = Number(formData.diaSemana);
+  const horaSeleccionada = formData.hora;
+  const medicoId = Number(formData.medico);
+  const disponible = formData.disponible === "on";
+
+  const hoy = new Date();
+  const año = hoy.getFullYear();
+  const mes = hoy.getMonth();
+
+  const fechasCoincidentes = [];
+  const primerDiaMes = new Date(año, mes, hoy.getDate());
+  const ultimoDiaMes = new Date(año, mes + 1, 0);
+
+  for (
+    let dia = new Date(primerDiaMes);
+    dia <= ultimoDiaMes;
+    dia.setDate(dia.getDate() + 1)
+  ) {
+    if (dia.getDay() === diaSemana) {
+      const [horas, minutos] = horaSeleccionada.split(":");
+      const fechaTurno = new Date(
+        dia.getFullYear(),
+        dia.getMonth(),
+        dia.getDate(),
+        Number(horas),
+        Number(minutos)
+      );
+      fechasCoincidentes.push(fechaTurno);
+    }
+  }
+
+  if (fechasCoincidentes.length === 0) {
+    alert("No hay coincidencias de ese día en el mes actual.");
+    return;
+  }
+
+  let maxId = Math.max(0, ...turnosDB.map((t) => t.id));
+  let nuevosTurnos = [];
+
+  fechasCoincidentes.forEach((fecha) => {
+    const timestamp = fecha.getTime();
+
+    const existe = turnosDB.find(
+      (t) => t.medico === medicoId && t.fechaHora === timestamp
+    );
+
+    if (!existe) {
+      nuevosTurnos.push({
+        id: ++maxId,
+        medico: medicoId,
+        fechaHora: timestamp,
+        disponible: disponible,
+      });
+    }
+  });
+
+  if (nuevosTurnos.length === 0) {
+    alert("Todos los turnos ya existían para ese médico en esas fechas.");
+    return;
+  }
+
+  turnosDB.push(...nuevosTurnos);
+  localStorage.setItem("dbTurnos", JSON.stringify(turnosDB));
+
+  const modal = bootstrap.Modal.getInstance(
+    document.getElementById("crearTurnosBatch")
+  );
+  modal.hide();
+
+  cancelEditTurno();
+  renderTurnos();
+};
+
 const loadMedicosIntoSelect = () => {
   const medicos = getMedicosDatabase();
   const selectMedicos = document.getElementById("SelectMedico");
@@ -84,8 +164,56 @@ const loadMedicosIntoSelect = () => {
     mappedOptions;
 };
 
+const loadMedicosIntoSelectBatch = () => {
+  const medicos = getMedicosDatabase();
+  const selectMedicos = document.getElementById("SelectMedicoBatch");
+
+  if (!selectMedicos) {
+    console.error("No se encontró el elemento select para médicos.");
+    return;
+  }
+
+  if (!medicos.length) {
+    selectMedicos.innerHTML = `<option value="" disabled>No hay médicos disponibles para elegir</option>`;
+    return;
+  }
+
+  const mappedOptions = medicos
+    .map(
+      (medico) => `
+    <option value="${medico.id}">${medico.nombre} ${medico.apellido}</option>`
+    )
+    .join("");
+  selectMedicos.innerHTML =
+    '<option value="" disabled selected>Seleccione un médico</option>' +
+    mappedOptions;
+};
+
 const loadTimeOptions = () => {
   const selectHora = document.getElementById("Hora");
+
+  if (!selectHora) {
+    console.error("No se encontró el elemento select para hora.");
+    return;
+  }
+
+  const timeOptions = [];
+  for (let hour = 0; hour < 24; hour++) {
+    for (let minute = 0; minute < 60; minute += 30) {
+      const hourStr = String(hour).padStart(2, "0");
+      const minuteStr = String(minute).padStart(2, "0");
+      const timeValue = `${hourStr}:${minuteStr}`;
+      timeOptions.push(`<option value="${timeValue}">${timeValue}</option>`);
+    }
+  }
+
+  selectHora.innerHTML =
+    '<option value="" disabled selected>Seleccione una hora</option>' +
+    timeOptions.join("");
+};
+
+const loadTimeOptionsBatch = () => {
+  const selectHora = document.getElementById("HoraBatch");
 
   if (!selectHora) {
     console.error("No se encontró el elemento select para hora.");
@@ -141,6 +269,14 @@ const cancelEditTurno = () => {
   document.getElementById("Disponible").checked = true;
 };
 
+const cancelEditTurnoBatch = () => {
+  editingTurnoId = null;
+  document.getElementById("SelectMedicoBatch").value = "";
+  document.getElementById("DiaSemanaBatch").value = "";
+  document.getElementById("HoraBatch").value = "";
+  document.getElementById("DisponibleBatch").checked = true;
+};
+
 function deleteTurno(id) {
   const turnosDb = getTurnosDatabase();
   const index = turnosDb.findIndex((turno) => turno.id === parseInt(id));
@@ -159,5 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("Fecha")?.setAttribute("min", today);
     loadMedicosIntoSelect();
     loadTimeOptions();
+
+    loadMedicosIntoSelectBatch();
+    loadTimeOptionsBatch();
   }
 });
