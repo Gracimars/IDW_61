@@ -7,8 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/main.css" />
 
@@ -19,7 +18,9 @@
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
-          <a href="/index.html" class="logo-link link-underline link-underline-opacity-0">
+          <a
+            href="/index.html"
+            class="logo-link link-underline link-underline-opacity-0">
             <h1 class="logo text-nowrap">Clínica IDW</h1>
           </a>
           <button
@@ -29,8 +30,7 @@
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse flex-grow-0 my-2" id="navbarNav">
@@ -39,12 +39,17 @@
                 <a class="nav-link" href="/index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/pages/doctor_catalog.html"
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="/pages/doctor_catalog.html"
                   >Médicos</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="/pages/about_us.html">Sobre Nosotros</a>
+                <a class="nav-link text-nowrap" href="/pages/about_us.html"
+                  >Sobre Nosotros</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/pages/contact_us.html">Contacto</a>
@@ -56,18 +61,23 @@
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
+                  aria-expanded="false">
                   Administración
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/usuarios/dashboard.html"
+                    <a
+                      class="dropdown-item"
+                      href="/pages/admin/usuarios/dashboard.html"
                       >Usuarios</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/medicos/dashboard.html">Médicos</a>
+                    <a
+                      class="dropdown-item"
+                      href="/pages/admin/medicos/dashboard.html"
+                      >Médicos</a
+                    >
                   </li>
                   <li>
                     <a
@@ -84,7 +94,16 @@
                     >
                   </li>
                   <li>
-                    <button class="dropdown-item border-top text-nowrap" onclick="handleLogout()">
+                    <a
+                      class="dropdown-item"
+                      href="/pages/admin/turnos/dashboard.html"
+                      >Turnos</a
+                    >
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item border-top text-nowrap"
+                      onclick="handleLogout()">
                       Cerrar sesión
                     </button>
                   </li>
@@ -98,14 +117,15 @@
 
     <main id="dashboard" class="mt-5 pt-4 mb-4 pb-4">
       <div class="container text-center mb-5">
-        <h2 class="fw-bold h1 py-2 my-4 text-start">Dashboard / Especialidades</h2>
+        <h2 class="fw-bold h1 py-2 my-4 text-start">
+          Dashboard / Especialidades
+        </h2>
         <span class="text-end w-100 d-block mb-3">
           <button
             type="button"
             class="btn btn-primary"
             data-bs-toggle="modal"
-            data-bs-target="#editModalEspecialidades"
-          >
+            data-bs-target="#editModalEspecialidades">
             Agregar Especialidad
           </button>
         </span>
@@ -130,67 +150,66 @@
           <div class="row">
             <div class="mb-3 col-12 col-xl-4">
               <h4 class="h2 text-xl-start">IDW S.A</h4>
-              <p>Proveyendo soluciones integrales en salud para la comunidad argentina.</p>
-              <div class="border-secondary border-bottom mb-3 w-100 d-xl-none"></div>
+              <p>
+                Proveyendo soluciones integrales en salud para la comunidad
+                argentina.
+              </p>
+              <div
+                class="border-secondary border-bottom mb-3 w-100 d-xl-none"></div>
             </div>
 
             <div class="mb-2 col-12 col-xl-4">
               <h4 class="h5 mb-3">Información de contacto</h4>
               <div class="">
                 <div
-                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2"
-                >
+                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
-                      d="M12 15c.81 0 1.5-.3 2.11-.89c.59-.61.89-1.3.89-2.11s-.3-1.5-.89-2.11C13.5 9.3 12.81 9 12 9s-1.5.3-2.11.89C9.3 10.5 9 11.19 9 12s.3 1.5.89 2.11c.61.59 1.3.89 2.11.89m0-13c2.75 0 5.1 1 7.05 2.95S22 9.25 22 12v1.45c0 1-.35 1.85-1 2.55c-.7.67-1.5 1-2.5 1c-1.2 0-2.19-.5-2.94-1.5c-1 1-2.18 1.5-3.56 1.5c-1.37 0-2.55-.5-3.54-1.46C7.5 14.55 7 13.38 7 12c0-1.37.5-2.55 1.46-3.54C9.45 7.5 10.63 7 12 7c1.38 0 2.55.5 3.54 1.46C16.5 9.45 17 10.63 17 12v1.45c0 .41.16.77.46 1.08s.65.47 1.04.47c.42 0 .77-.16 1.07-.47s.43-.67.43-1.08V12c0-2.19-.77-4.07-2.35-5.65S14.19 4 12 4s-4.07.77-5.65 2.35S4 9.81 4 12s.77 4.07 2.35 5.65S9.81 20 12 20h5v2h-5c-2.75 0-5.1-1-7.05-2.95S2 14.75 2 12s1-5.1 2.95-7.05S9.25 2 12 2"
-                    />
+                      d="M12 15c.81 0 1.5-.3 2.11-.89c.59-.61.89-1.3.89-2.11s-.3-1.5-.89-2.11C13.5 9.3 12.81 9 12 9s-1.5.3-2.11.89C9.3 10.5 9 11.19 9 12s.3 1.5.89 2.11c.61.59 1.3.89 2.11.89m0-13c2.75 0 5.1 1 7.05 2.95S22 9.25 22 12v1.45c0 1-.35 1.85-1 2.55c-.7.67-1.5 1-2.5 1c-1.2 0-2.19-.5-2.94-1.5c-1 1-2.18 1.5-3.56 1.5c-1.37 0-2.55-.5-3.54-1.46C7.5 14.55 7 13.38 7 12c0-1.37.5-2.55 1.46-3.54C9.45 7.5 10.63 7 12 7c1.38 0 2.55.5 3.54 1.46C16.5 9.45 17 10.63 17 12v1.45c0 .41.16.77.46 1.08s.65.47 1.04.47c.42 0 .77-.16 1.07-.47s.43-.67.43-1.08V12c0-2.19-.77-4.07-2.35-5.65S14.19 4 12 4s-4.07.77-5.65 2.35S4 9.81 4 12s.77 4.07 2.35 5.65S9.81 20 12 20h5v2h-5c-2.75 0-5.1-1-7.05-2.95S2 14.75 2 12s1-5.1 2.95-7.05S9.25 2 12 2" />
                   </svg>
                   <p>
-                    <a href="mailto:info@idw.com" class="text-white text-decoration-none"
+                    <a
+                      href="mailto:info@idw.com"
+                      class="text-white text-decoration-none"
                       >info@idw.com</a
                     >
                   </p>
                 </div>
                 <div
-                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2"
-                >
+                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
-                      d="M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1c-.3-1.1-.5-2.4-.5-3.6c0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1c0 9.4 7.6 17 17 17c.5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1M5 5h1.5c.1.9.3 1.8.5 2.6L5.8 8.8C5.4 7.6 5.1 6.3 5 5m14 14c-1.3-.1-2.6-.4-3.8-.8l1.2-1.2c.8.2 1.7.4 2.6.4zm-4-7h2a5 5 0 0 0-5-5v2a3 3 0 0 1 3 3m4 0h2c0-5-4.03-9-9-9v2c3.86 0 7 3.13 7 7"
-                    />
+                      d="M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.3-.3.4-.7.2-1c-.3-1.1-.5-2.4-.5-3.6c0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1c0 9.4 7.6 17 17 17c.5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1M5 5h1.5c.1.9.3 1.8.5 2.6L5.8 8.8C5.4 7.6 5.1 6.3 5 5m14 14c-1.3-.1-2.6-.4-3.8-.8l1.2-1.2c.8.2 1.7.4 2.6.4zm-4-7h2a5 5 0 0 0-5-5v2a3 3 0 0 1 3 3m4 0h2c0-5-4.03-9-9-9v2c3.86 0 7 3.13 7 7" />
                   </svg>
                   <p>
-                    <a href="tel:+54123456789" class="text-white text-decoration-none"
+                    <a
+                      href="tel:+54123456789"
+                      class="text-white text-decoration-none"
                       >+54 123 456 789</a
                     >
                   </p>
                 </div>
 
                 <div
-                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2"
-                >
+                  class="py-1 d-flex w-100 justify-content-center justify-content-xl-start gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    viewBox="0 0 24 24"
-                  >
+                    viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
-                      d="M12 4c2.2 0 4 1.8 4 4c0 2.1-2.1 5.5-4 7.9c-1.9-2.5-4-5.8-4-7.9c0-2.2 1.8-4 4-4m0-2C8.7 2 6 4.7 6 8c0 4.5 6 11 6 11s6-6.6 6-11c0-3.3-2.7-6-6-6m0 4c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m8 13c0 2.2-3.6 4-8 4s-8-1.8-8-4c0-1.3 1.2-2.4 3.1-3.2l.6.9c-1 .5-1.7 1.1-1.7 1.8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5c0-.7-.7-1.3-1.8-1.8l.6-.9c2 .8 3.2 1.9 3.2 3.2"
-                    />
+                      d="M12 4c2.2 0 4 1.8 4 4c0 2.1-2.1 5.5-4 7.9c-1.9-2.5-4-5.8-4-7.9c0-2.2 1.8-4 4-4m0-2C8.7 2 6 4.7 6 8c0 4.5 6 11 6 11s6-6.6 6-11c0-3.3-2.7-6-6-6m0 4c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m8 13c0 2.2-3.6 4-8 4s-8-1.8-8-4c0-1.3 1.2-2.4 3.1-3.2l.6.9c-1 .5-1.7 1.1-1.7 1.8c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5c0-.7-.7-1.3-1.8-1.8l.6-.9c2 .8 3.2 1.9 3.2 3.2" />
                   </svg>
                   <p>Av. Siempreviva 123</p>
                 </div>
@@ -200,7 +219,9 @@
             <div class="mb-2 col-12 col-xl-4">
               <h4 class="h5 mb-3">Horarios de Atención</h4>
               <div>
-                <p class="mb-0"><span>Lunes a Viernes:</span> 9:00 AM - 6:00 PM</p>
+                <p class="mb-0">
+                  <span>Lunes a Viernes:</span> 9:00 AM - 6:00 PM
+                </p>
                 <p class="mb-0"><span>Sábados:</span> 10:00 AM - 2:00 PM</p>
               </div>
             </div>
@@ -221,8 +242,7 @@
       id="editModalEspecialidades"
       tabindex="-1"
       aria-labelledby="editModalLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -232,26 +252,25 @@
               class="btn-close"
               data-bs-dismiss="modal"
               onClick="cancelEditEspecialidad()"
-              aria-label="Close"
-            ></button>
+              aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form onSubmit="handleSubmitEspecialidad(event)">
-              <label for="especialidadNameInput" class="form-label">Nombre</label>
+              <label for="especialidadNameInput" class="form-label"
+                >Nombre</label
+              >
               <input
                 required
                 name="nombreEspecialidad"
                 type="text"
                 id="especialidadNameInput"
-                class="form-control"
-              />
+                class="form-control" />
               <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-outline-secondary"
                   data-bs-dismiss="modal"
-                  onClick="cancelEditEspecialidad()"
-                >
+                  onClick="cancelEditEspecialidad()">
                   Cancelar
                 </button>
                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -267,8 +286,7 @@
       id="deleteModalEspecialidad"
       tabindex="-1"
       aria-labelledby="deleteModalEspecialidadLabel"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -276,19 +294,22 @@
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+              aria-label="Close"></button>
           </div>
-          <div class="modal-body">¿Estás seguro de eliminar esta especialidad?</div>
+          <div class="modal-body">
+            ¿Estás seguro de eliminar esta especialidad?
+          </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              data-bs-dismiss="modal">
               No
             </button>
             <button
               type="button"
               class="btn btn-outline-danger"
-              onclick="confirmDeleteEspecialidad()"
-            >
+              onclick="confirmDeleteEspecialidad()">
               Sí
             </button>
           </div>
@@ -299,19 +320,17 @@
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="../../../scripts/dbInitializer.js"></script>
     <script src="../../../scripts/users/authVerify.js"></script>
     <script src="../../../scripts/especialidades/tableRenderer.js"></script>
     <script src="../../../scripts/especialidades/crudEspecialidades.js"></script>
     <script>
-      renderEspecialidades()
+      renderEspecialidades();
     </script>
   </body>
 </html>
