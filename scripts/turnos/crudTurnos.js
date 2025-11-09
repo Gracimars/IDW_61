@@ -155,6 +155,8 @@ function deleteTurno(id) {
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("editModalTurnos");
   if (modal) {
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("Fecha")?.setAttribute("min", today);
     loadMedicosIntoSelect();
     loadTimeOptions();
   }
