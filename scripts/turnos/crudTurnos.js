@@ -20,7 +20,6 @@ const handleSubmitTurno = (event) => {
   const idTurno =
     editingTurnoId ?? Math.max(...turnosDB.map((turno) => turno.id), 0) + 1;
 
-  // Combinar fecha y hora en timestamp Unix
   const dateTimeString = `${formData.fecha}T${formData.hora}:00`;
   const timestamp = new Date(dateTimeString).getTime();
 
@@ -82,7 +81,6 @@ const loadTimeOptions = () => {
     return;
   }
 
-  // Generar opciones de hora cada 30 minutos
   const timeOptions = [];
   for (let hour = 0; hour < 24; hour++) {
     for (let minute = 0; minute < 60; minute += 30) {
@@ -107,7 +105,6 @@ const openEditModalTurno = (turnoId) => {
     document.getElementById("modalTitleTurno").textContent = "Editar turno";
     document.getElementById("SelectMedico").value = turno.medico;
 
-    // Convertir timestamp a fecha y hora separadas
     const date = new Date(turno.fechaHora);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -144,7 +141,6 @@ function deleteTurno(id) {
   }
 }
 
-// Cargar médicos y horas cuando se abre el modal
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("editModalTurnos");
   if (modal) {
