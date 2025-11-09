@@ -34,6 +34,17 @@ const handleSubmitTurno = (event) => {
     const index = turnosDB.findIndex((turno) => turno.id === editingTurnoId);
     turnosDB.splice(index, 1, turnoEntry);
   } else {
+    turnoExistente = turnosDB.find(
+      (turno) =>
+        turno.medico === turnoEntry.medico &&
+        turno.fechaHora === turnoEntry.fechaHora
+    );
+    if (turnoExistente) {
+      alert(
+        "el doc ya tiene un turno a esta hora, no puede atender dos pacientes che."
+      );
+      return;
+    }
     turnosDB.push(turnoEntry);
   }
 
