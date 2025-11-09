@@ -126,6 +126,14 @@
             data-bs-target="#editModalTurnos">
             Agregar Turno
           </button>
+
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#crearTurnosBatch">
+            Crear Turnos del Mes
+          </button>
         </span>
         <div class="table-responsive card">
           <table class="table table-striped table-hover table-striped mb-0">
@@ -236,7 +244,6 @@
       </div>
     </footer>
 
-    <!-- Modal de Creación/Edición -->
     <div
       class="modal fade"
       data-bs-backdrop="static"
@@ -316,7 +323,97 @@
       </div>
     </div>
 
-    <!-- Modal de Eliminación -->
+    <div
+      class="modal fade"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      id="crearTurnosBatch"
+      tabindex="-1"
+      aria-labelledby="editModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalTitleTurno">
+              Crear Turnos del Mes
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              onClick="cancelEditTurnoBatch()"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form onSubmit="handleSubmitBatch(event)">
+              <div class="mb-3">
+                <label for="SelectMedicoBatch" class="form-label">Médico</label>
+                <select
+                  class="form-select"
+                  id="SelectMedicoBatch"
+                  name="medico"
+                  required>
+                  <option value="" disabled selected>
+                    Seleccione un médico
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="DiaSemanaBatch" class="form-label"
+                  >Día de la semana</label
+                >
+                <select
+                  class="form-select"
+                  id="DiaSemanaBatch"
+                  name="diaSemana"
+                  required>
+                  <option value="" disabled selected>Seleccione un día</option>
+                  <option value="1">Lunes</option>
+                  <option value="2">Martes</option>
+                  <option value="3">Miércoles</option>
+                  <option value="4">Jueves</option>
+                  <option value="5">Viernes</option>
+                  <option value="6">Sábado</option>
+                  <option value="0">Domingo</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="HoraBatch" class="form-label">Hora</label>
+                <select class="form-select" id="HoraBatch" name="hora" required>
+                  <option value="" disabled selected>
+                    Seleccione una hora
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="DisponibleBatch"
+                    name="disponible"
+                    checked />
+                  <label class="form-check-label" for="DisponibleBatch">
+                    Disponible
+                  </label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal"
+                  onClick="cancelEditTurnoBatch()">
+                  Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div
       class="modal fade"
       id="deleteModalTurno"
