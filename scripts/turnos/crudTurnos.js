@@ -144,9 +144,7 @@ function deleteTurno(id) {
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("editModalTurnos");
   if (modal) {
-    modal.addEventListener("show.bs.modal", () => {
-      loadMedicosIntoSelect();
-      loadTimeOptions();
-    });
+    loadMedicosIntoSelect();
+    loadTimeOptions();
   }
 });
