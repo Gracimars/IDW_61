@@ -62,7 +62,7 @@ function renderProfessionals() {
       .map((osId) => {
         console.log(osId)
         const os = obrasSociales.find((o) => Number(o.id) === Number(osId))
-        return os ? `<span class="badge text-dark background_lightBrown">${os.nombre}ss</span>` : ''
+        return os ? `<span class="badge text-dark background_lightBrown">${os.nombre}</span>` : ''
       })
       .join(' ')
 

@@ -39,7 +39,7 @@ const obrasSociales = [
   },
 ]
 
-const dataBase = [
+const medicosDB = [
   {
     id: 1,
     matricula: 12345,
@@ -113,10 +113,16 @@ const dataBase = [
 ]
 
 const prevDB = localStorage.getItem('dbMedicos')
-if (!prevDB) localStorage.setItem('dbMedicos', JSON.stringify(dataBase))
+if (!prevDB) localStorage.setItem('dbMedicos', JSON.stringify(medicosDB))
 
 const prevEspDB = localStorage.getItem('dbEspecialidades')
 if (!prevEspDB) localStorage.setItem('dbEspecialidades', JSON.stringify(especialidadesDB))
 
 const prevOSDB = localStorage.getItem('dbObrasSociales')
 if (!prevOSDB) localStorage.setItem('dbObrasSociales', JSON.stringify(obrasSociales))
+
+const prevTurnosDB = localStorage.getItem('dbTurnos')
+if (!prevTurnosDB) localStorage.setItem('dbTurnos', JSON.stringify(turnosDB))
+
+const prevReservasDB = localStorage.getItem('dbReservas')
+if (!prevReservasDB) localStorage.setItem('dbReservas', JSON.stringify([]))
