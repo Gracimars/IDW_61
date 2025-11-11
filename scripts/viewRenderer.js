@@ -4,6 +4,11 @@ const getUsers = () => {
   return professionalsData
 }
 
+const getObrasSociales = () => {
+  const storedData = localStorage.getItem('dbObrasSociales')
+  return storedData ? JSON.parse(storedData) : []
+}
+
 function renderProfessionalView(id) {
   const professionals = getUsers()
   if (!professionals) {
@@ -19,8 +24,12 @@ function renderProfessionalView(id) {
   container.innerHTML = ''
   const doc = professionals.find((doc) => doc.id === Number(id))
 
+  const obrasSocialesList = getObrasSociales()
   const badges = doc.obrasSociales
-    .map((os) => `<span class="badge text-dark background_lightBrown">${os}</span>`)
+    .map((osId) => {
+      const os = obrasSocialesList.find((o) => o.id === osId)
+      return os ? `<span class="badge text-dark background_lightBrown">${os.nombre}</span>` : ''
+    })
     .join(' ')
 
   container.innerHTML = `
