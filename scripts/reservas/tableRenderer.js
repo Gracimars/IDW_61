@@ -23,6 +23,7 @@ const findTurno = (id) => {
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
+    hour12: false,
   })
   return `${fechaFormateada} - Dr/a. ${medico ? medico.apellido : ''}`
 }

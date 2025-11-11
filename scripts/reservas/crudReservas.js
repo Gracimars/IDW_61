@@ -59,6 +59,7 @@ const cargarTurnos = () => {
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
+        hour12: false,
       })
       return `<option value="${turno.id}" data-medico="${turno.medico}">${fechaFormateada} - Dr/a. ${medico?.apellido}</option>`
     })
@@ -96,6 +97,7 @@ const filtrarTurnosPorEspecialidad = (especialidadId) => {
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
+        hour12: false,
       })
       return `<option value="${turno.id}" data-medico="${turno.medico}">${fechaFormateada} - Dr/a. ${medico?.apellido}</option>`
     })
@@ -137,6 +139,8 @@ const calcularValorTotal = () => {
   const selectTurnos = document.getElementById('SelectTurno')
   const selectObrasSociales = document.getElementById('SelectObraSocial')
   const inputValorTotal = document.getElementById('valorTotal')
+  const inputValorMedico = document.getElementById('valorMedico')
+  const inputValorDescuento = document.getElementById('valorDescuento')
   const medicos = getMedicosDatabase()
 
   const turnoSeleccionado = selectTurnos.options[selectTurnos.selectedIndex]
@@ -149,6 +153,8 @@ const calcularValorTotal = () => {
     !obraSocialSeleccionada.value
   ) {
     inputValorTotal.value = ''
+    if (inputValorMedico) inputValorMedico.value = ''
+    if (inputValorDescuento) inputValorDescuento.value = ''
     return
   }
   const medicoId = parseInt(turnoSeleccionado.dataset.medico)
@@ -161,6 +167,8 @@ const calcularValorTotal = () => {
     const valorTotal = valorConsulta - descuento
     inputValorTotal.value = valorTotal
     inputValorTotal.dataset.valorNumerico = valorTotal
+    if (inputValorMedico) inputValorMedico.value = valorConsulta
+    if (inputValorDescuento) inputValorDescuento.value = descuento
   }
 }
 
@@ -170,6 +178,8 @@ const handleSubmitBooking = async (event) => {
   const form = event.target
   const formData = Object.fromEntries(new FormData(form))
   const inputValorTotal = document.getElementById('valorTotal')
+  const inputValorMedico = document.getElementById('valorMedico')
+  const inputValorDescuento = document.getElementById('valorDescuento')
 
   const reservaEntry = {
     documento: formData.documento,
@@ -191,6 +201,11 @@ const handleSubmitBooking = async (event) => {
   const especialidad = especialidadesDB.find((e) => e.id === parseInt(reservaEntry.especialidad))
   const obraSocial = obrasSocialesDB.find((os) => os.id === parseInt(reservaEntry.obraSocial))
 
+  const valorConsulta = medico?.valorConsulta || 0
+  const porcentajeDescuento = parseFloat(obraSocial?.porcentaje) || 0
+  const valorDescuento = (valorConsulta * porcentajeDescuento) / 100
+  const valorTotal = valorConsulta - valorDescuento
+
   const modalContent = document.getElementById('modal-reservas__body')
   modalContent.innerHTML = `
     <strong>Verifica tus datos:</strong><br><br>
@@ -199,7 +214,10 @@ const handleSubmitBooking = async (event) => {
     <p class="mb-2"><strong>Especialidad:</strong> ${especialidad?.nombre}</p>
     <p class="mb-2"><strong>Médico:</strong> Dr/a. ${medico?.apellido}</p>
     <p class="mb-2"><strong>Obra Social:</strong> ${obraSocial?.nombre}</p>
-    <p class="mb-2"><strong>Valor Total:</strong> $${reservaEntry.valorTotal}</p>
+    <hr>
+    <p class="mb-2"><strong>Valor Médico:</strong> $${valorConsulta}</p>
+    <p class="mb-2"><strong>Descuento (${porcentajeDescuento}%):</strong> -$${valorDescuento}</p>
+    <p class="mb-2"><strong>Valor Total:</strong> $${valorTotal}</p>
   `
 
   const myModalAlternative = new bootstrap.Modal('#modalReservas', {
