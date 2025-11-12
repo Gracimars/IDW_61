@@ -10,15 +10,15 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/styles/reset.css" />
-    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/main.css" />
   </head>
 
   <body>
     <header id="header" class="fixed-top">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid d-flex justify-around">
-          <a href="/index.html" class="logo-link link-underline link-underline-opacity-0">
+          <a href="../index.html" class="logo-link link-underline link-underline-opacity-0">
             <h1 class="logo text-nowrap">Clínica IDW</h1>
           </a>
           <button
@@ -37,28 +37,28 @@
               class="d-flex flex-column flex-lg-row gap gap-1 auth-buttons order-1 order-md-2 my-3 my-lg-0"
               id="auth-buttons-group"
             >
-              <a class="btn btn-primary text-nowrap" href="/pages/login.html" role="button"
+              <a class="btn btn-primary text-nowrap" href="../pages/login.html" role="button"
                 >Iniciar Sesión</a
               >
             </div>
 
             <ul class="navbar-nav order-2 order-md-1">
               <li class="nav-item">
-                <a class="nav-link" href="/index.html">Inicio</a>
+                <a class="nav-link" href="../index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/pages/reservas.html"
+                <a class="nav-link active" aria-current="page" href="../pages/reservas.html"
                   >Reservas</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pages/doctor_catalog.html">Médicos</a>
+                <a class="nav-link" href="../pages/doctor_catalog.html">Médicos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-nowrap" href="/pages/about_us.html">Sobre Nosotros</a>
+                <a class="nav-link text-nowrap" href="../pages/about_us.html">Sobre Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/pages/contact_us.html">Contacto</a>
+                <a class="nav-link" href="../pages/contact_us.html">Contacto</a>
               </li>
 
               <li class="nav-item dropdown d-none active" id="admin-access-routes">
@@ -73,30 +73,32 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/usuarios/dashboard.html"
+                    <a class="dropdown-item" href="../pages/admin/usuarios/dashboard.html"
                       >Usuarios</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/medicos/dashboard.html">Médicos</a>
+                    <a class="dropdown-item" href="../pages/admin/medicos/dashboard.html"
+                      >Médicos</a
+                    >
                   </li>
                   <li>
                     <a
                       class="dropdown-item text-nowrap"
-                      href="/pages/admin/obras-sociales/dashboard.html"
+                      href="../pages/admin/obras-sociales/dashboard.html"
                       >Obras Sociales</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/especialidades/dashboard.html"
+                    <a class="dropdown-item" href="../pages/admin/especialidades/dashboard.html"
                       >Especialidades</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/turnos/dashboard.html">Turnos</a>
+                    <a class="dropdown-item" href="../pages/admin/turnos/dashboard.html">Turnos</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/pages/admin/reservas/dashboard.html"
+                    <a class="dropdown-item" href="../pages/admin/reservas/dashboard.html"
                       >Reservas</a
                     >
                   </li>
@@ -216,13 +218,6 @@
                 />
               </div>
             </div>
-            <!--  <div class="col-12">
-              <label for="valorTotal" class="form-label mb-0">Valor total</label>
-              <div class="input-group">
-                <span class="input-group-text rounded-start">$</span>
-                <input class="form-control" id="valorTotal" name="valorTotal" disabled />
-              </div>
-            </div> -->
           </div>
           <div class="col-12 col-lg-8 col-md-8 mt-4 px-0 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary w-auto">Enviar</button>
@@ -354,8 +349,8 @@
       </div>
     </footer>
 
-    <script src="../../../scripts/dbInitializer.js"></script>
-    <script src="../../../scripts/users/authVerify.js"></script>
+    <script src="../scripts/dbInitializer.js"></script>
+    <script src="../scripts/users/authVerify.js"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -367,7 +362,7 @@
       integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
       crossorigin="anonymous"
     ></script>
-    <script src="/scripts/reservas/crudReservas.js"></script>
+    <script src="../scripts/reservas/crudReservas.js"></script>
 
     <script>
       formBookingInitializer()

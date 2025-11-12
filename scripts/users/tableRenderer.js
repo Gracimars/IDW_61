@@ -50,7 +50,6 @@ function renderUsers(users) {
       <td>${user.phone}</td>
       <td class="text-center">
         <div class="d-flex gap-1 justify-content-center">
-        
            <a href="#" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Ver">
             ${icons.view}
           </a>
