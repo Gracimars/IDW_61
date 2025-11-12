@@ -49,7 +49,7 @@ const handleLogin = async (event) => {
     sessionStorage.setItem('user', JSON.stringify(userSanitizado))
     sessionStorage.setItem('accessToken', JSON.stringify(loginResponse.accessToken))
 
-    window.location.href = '../index.html'
+    window.location.href = resolvePath('index.html')
   } catch (error) {
     alert(`${error}.`)
   }
@@ -65,7 +65,7 @@ const isProtectedRoute = () => window.location.pathname.includes('/admin/')
 
 const handleLogout = () => {
   sessionStorage.removeItem('user')
-  window.location.href = 'index.html'
+  window.location.href = resolvePath('index.html')
 }
 
 if (isUserLoggedIn()) {
@@ -79,5 +79,22 @@ if (isAdmin()) {
 }
 
 if (isProtectedRoute() && !isAdmin()) {
-  window.location.href = '../../login.html'
+  window.location.href = resolvePath('pages/login.html')
+}
+
+const getProjectRoot = () => {
+  const { origin, pathname } = window.location
+
+  const projectRootIndex = pathname.indexOf('/pages')
+  const basePath =
+    projectRootIndex !== -1
+      ? pathname.slice(0, projectRootIndex + 1)
+      : pathname.replace(/index\.html$/, '')
+
+  return origin === 'null' ? `file://${basePath}` : `${origin}${basePath}`
+}
+
+const resolvePath = (relativePath) => {
+  const root = getProjectRoot()
+  return `${root}${relativePath}`
 }
