@@ -112,6 +112,69 @@ const medicosDB = [
   },
 ]
 
+const turnosDB = [
+  {
+    id: 1,
+    medico: 1,
+    fechaHora: 1763010000000,
+    disponible: true,
+  },
+  {
+    id: 2,
+    medico: 2,
+    fechaHora: 1763494200000,
+    disponible: true,
+  },
+  {
+    id: 3,
+    medico: 2,
+    fechaHora: 1764099000000,
+    disponible: true,
+  },
+  {
+    id: 4,
+    medico: 3,
+    fechaHora: 1762966800000,
+    disponible: true,
+  },
+  {
+    id: 5,
+    medico: 3,
+    fechaHora: 1763571600000,
+    disponible: true,
+  },
+  {
+    id: 6,
+    medico: 3,
+    fechaHora: 1764176400000,
+    disponible: true,
+  },
+  {
+    id: 7,
+    medico: 4,
+    fechaHora: 1763051400000,
+    disponible: true,
+  },
+  {
+    id: 8,
+    medico: 4,
+    fechaHora: 1763656200000,
+    disponible: true,
+  },
+  {
+    id: 9,
+    medico: 4,
+    fechaHora: 1764261000000,
+    disponible: true,
+  },
+  {
+    id: 10,
+    medico: 6,
+    fechaHora: 1764153000000,
+    disponible: true,
+  },
+]
+
 const prevDB = localStorage.getItem('dbMedicos')
 if (!prevDB) localStorage.setItem('dbMedicos', JSON.stringify(medicosDB))
 
