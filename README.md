@@ -9,5 +9,5 @@
 ***
 ## Credenciales de acceso de administrador
 > [!IMPORTANT]
-> Usuario: admin@admin.com  
-> Contraseña: IDW2025!@
+> Usuario: emilys
+> Contraseña: emilyspass
